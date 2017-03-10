@@ -4666,6 +4666,9 @@ code, .code {
 @media (max-width: 600px) {
     body {
         min-width: 220px;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+        margin: 0;
     }
     .other-pages .city-autocomplete-wrapper {
         background-color: transparent; 
@@ -4691,10 +4694,13 @@ code, .code {
         width: 100%;
         height: 95px;
         background: white;
-        position: fixed;
+        position: absolute;
         top: 0px;
         z-index: 21;
         border-bottom: 1px solid #c8c9c9;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+        margin: 0;
     }
     .filters-row {
         display: none;
@@ -4703,6 +4709,9 @@ code, .code {
         position: relative;
         top: 238px;
         border-bottom: none;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+        margin: 0;
     }
     div.alert-part button.btn-alert,
     div.sorting-by button.btn-sort {
@@ -4736,9 +4745,12 @@ code, .code {
         background-color: white;
         width: 70%;
         margin: auto;
+        overflow-x: hidden;
     }
     .items-grid .item-main {
         margin: 0;
+        flex-basis: 100%;
+        -webkit-flex-basis: 100%;
     }
     .items-grid > .container-fluid {
         padding-right: 0px;
