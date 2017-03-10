@@ -1,0 +1,221 @@
+﻿@page {
+    size: auto;
+    margin-bottom: 5mm;
+}
+
+@media print {
+    /* Base */
+    body {
+        
+        min-width: initial;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        text-align: center;
+    }
+
+    .arrow-next, .arrow-prev {
+        display: none !important;
+    }
+
+    a[href]::after {
+        content: none !important;
+    }
+
+    img[src]::after {
+        content: none !important;
+    }
+
+    p.text {
+        margin-bottom: 20px !important;
+    }
+
+    form, .learn-more, .search-href, .search-input, .filters, .breadcrumbs-section  {
+        display: none !important;
+    }
+    .item-content-part, .item-params, .more-properties {
+        border: none !important;
+    }
+
+    header, header.home, header.other-pages {
+        height: auto !important;
+        border: none;
+    }
+
+    header .logo a::after {
+        display: none;
+    }
+
+    header .logo .logo-part-small {
+        display: none;
+    }
+
+    header .search-row {
+        display: none;
+    }
+
+    .main-aside .title-standard {
+        margin-top: 20px !important;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .featured {
+        border-bottom: none;
+    }
+
+    #mainMapHomeSection {
+        height: auto;
+    }
+
+    #mainMapHomeSection > * {
+        display: none;
+    }
+
+    #mainMapHomeSection > .titles-group {
+        position: relative;
+        display: block;
+        width: 100%;
+    }
+
+    /*Tabs*/
+    .tabs-area {
+        display: none;
+    }
+
+    /*Carousel*/
+
+    [class*='carousel'] .carousel-control {
+        display: none;
+    }
+
+    [class*='carousel'] figure > a:first-child::after {
+        display: none;
+    }
+
+    [class*='carousel'] figure figcaption {
+        margin-top: 15px;
+    }
+
+    .properties-list {
+        display: none;
+    }
+
+    /*commercial Section*/
+    #commercialSection {
+        display: none;
+    }
+
+    footer {
+        display: none;
+    }
+
+    /*===== Search content PAGE ===*/
+    header .search-page {
+        height: auto !important;
+    }
+    #searchAjaxContent .info-row {
+        /*display: none;*/
+        border: none;
+    }
+
+    #searchAjaxContent .info-row .alert-part button {
+        display: none;
+    }
+        #searchAjaxContent .info-row .alert-part h1 {
+            width: 100%;
+            max-width: none;
+        }
+
+    #searchAjaxContent .info-row .sorting-by {
+        display: none;
+    }
+
+
+    .items-grid figure.item-main {
+        margin-bottom: 100px !important;
+    }
+    .items-grid figure .photo-area .ga-icons, .ga-icon-youtube-play, .item-favourite{
+        display: none;
+    }
+
+
+    .breadcrumbs-area {
+    display: none;}
+    .item-price {
+        font-weight: bold;
+        background: #ffffff !important;
+    }
+
+    .items-grid figure.item-main, .items-grid figure.item-main:nth-child(3n+1), .items-grid figure.item-main:nth-child(2n+1) {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        margin-top: 20px !important;
+        max-width: 50%;
+        width: 50%;
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+        padding-top: 15px !important;
+        
+    }
+    .items-grid figure figcaption.descr-area .item-title, .items-grid figure figcaption.descr-area .item-location {
+    text-align: left;
+    margin-left: 0;
+    margin-top: 10px;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    
+    }
+    .items-grid figure  figcaption.descr-area .item-title .item-show-info{
+        display: none;
+
+    }
+
+    .items-grid figure  figcaption.descr-area .ellipsis {
+        height: auto !important;
+        margin-left: 0;
+    }
+
+   .items-grid figure  figcaption.descr-area .ellipsis .item-more-info {
+        height: 50px;
+    }
+
+    aside.float-form {
+        margin: 0;
+    }
+
+    .form-area {
+        border: none;
+    }
+    .form-area .form-price {
+        background: #fff !important;
+    }
+    .form-content {
+        display: none;
+    }
+
+    .share-area {
+        display: none;
+    }
+
+    .item-ecology {
+        width: 100%;
+    }
+
+    .item-content .container-fluid::after {
+        display: none !important;
+    }
+
+    .item-params .item-info{
+        padding-top: 0;
+    }
+}
+
+
+
+
+
+
+
