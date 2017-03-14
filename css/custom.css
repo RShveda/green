@@ -1586,7 +1586,6 @@ textarea.standard-input {
         max-width: 32%;
     }
 }
-
 @media (max-width: 900px) {
     .list-part li {
         -webkit-flex-basis: 49%;
@@ -1609,6 +1608,7 @@ textarea.standard-input {
 
 .info-row .info-alert {
     margin-top: 10px;
+    margin-bottom: 5px;
     height: auto;
 }
 
