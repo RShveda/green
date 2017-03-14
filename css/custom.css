@@ -4666,8 +4666,8 @@ code, .code {
 @media (max-width: 600px) {
     body {
         min-width: 220px;
-        overflow-x: hidden;
-        -webkit-overflow-scrolling: touch;
+        /*overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;*/
         margin: 0;
     }
     .other-pages .city-autocomplete-wrapper {
@@ -4686,6 +4686,7 @@ code, .code {
     .header-row.row.search-page .search-input .label-m-search,
     .header-row.row.search-page .search-input .label-m-menu {
         display: block;
+        padding-top: 4px;
     }
     .header-row.search-page .text-right {
         display: none;
@@ -4698,8 +4699,8 @@ code, .code {
         top: 0px;
         z-index: 21;
         border-bottom: 1px solid #c8c9c9;
-        overflow: hidden;
-        -webkit-overflow-scrolling: touch;
+        /*overflow: hidden;
+        -webkit-overflow-scrolling: touch;*/
         /*margin: 0;*/
     }
     .filters-row {
@@ -4709,8 +4710,8 @@ code, .code {
         position: relative;
         top: 238px;
         border-bottom: none;
-        overflow-x: hidden;
-        -webkit-overflow-scrolling: touch;
+        /*overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;*/
         margin: 0;
     }
     div.alert-part button.btn-alert,
@@ -4792,20 +4793,20 @@ code, .code {
         height: 245px;
     }
     .item-main .descr-area {
-        padding-bottom: 20px;
+        padding-bottom: 15px;
         background: black; /* For browsers that do not support gradients */
         background: -webkit-linear-gradient(to bottom, rgba(220,220,220,0.6), rgba(0,0,0,1)); /* For Safari 5.1 to 6.0 */
         background: -o-linear-gradient(to bottom, rgba(220,220,220,0.6), rgba(0,0,0,1));/* For Opera 11.1 to 12.0 */
         background: -moz-linear-gradient(to bottom, rgba(220,220,220,0.6), rgba(0,0,0,1));/* For Firefox 3.6 to 15 */
         background: linear-gradient(to bottom, rgba(220,220,220,0.6), rgba(0,0,0,1)); /* Standard syntax (must be last) */
-        bottom: 50px;
+        bottom: 45px;
         z-index: 10;
     }
     .pagination-area {
         margin: 40px 0 30px 0;
         width: 100%;
         min-height: 300px;
-        min-width: 500px;
+        /*min-width: 500px;*/
     }
     .refine-switch {
         display: block;
@@ -4857,14 +4858,14 @@ code, .code {
         font-size: 12px;
     }
     .other-pages .header-row {
-        height: 85px;
+        height: 80px;
     }
     .info-row, .items-grid {
         top: 228px;
     }
     .header-row.row.search-page .search-input .label-m-search,
     .header-row.row.search-page .search-input .label-m-menu {
-        padding-top: 9px;
+        padding-top: 10px;
     }
     h1.alert-title {
         font-size: 1em;
@@ -4875,5 +4876,18 @@ code, .code {
     .small-nav .list-part {
         margin: 0 0 5px 0;
     }
-
+    header.home .logo img {
+        margin-right: 2px;
+    }
+    .pagination-area {
+        width: 320px;
+    }
+    .more-properties {
+        width: 290px;
+    }
+    .properties-list li {
+        flex-basis: 45%;
+        -webkit-flex-basis: 45%;
+        max-width: 145px;
+    }
 }
