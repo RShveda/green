@@ -468,18 +468,23 @@ function checkElementOnscreen(el) {
 
 function searchContentOnDocumentReady() {
     /***************** Adverts photos slider ****************/
-    $('.swiper-container').each(function () {
-        new Swiper($(this), {
-            nextButton: $(this).find('.ga-icon-chevron-thin-right'),
-            prevButton: $(this).find('.ga-icon-chevron-thin-left'),
-            loop: true,
-            effect: 'fade',
-            simulateTouch: false,
-            lazyLoading: true
+    if(document.documentElement.clientWidth > 568) {
+        $('.swiper-container').each(function () {
+            new Swiper($(this), {
+                nextButton: $(this).find('.ga-icon-chevron-thin-right'),
+                prevButton: $(this).find('.ga-icon-chevron-thin-left'),
+                loop: true,
+                effect: 'fade',
+                simulateTouch: false,
+                lazyLoading: true
+            });
+            setTimeout(1);
         });
-        setTimeout(1);
-    });
-
+    }
+    else {
+        $(".swiper-slide").css("width","100%");
+        $(".swiper-slide").css("transform","translate3d(-100%, 0px, 0px)");
+    }
     var details = $(".item-details ul li");
     /*************************** Details on each item after hover icon *********************************/
     details.on("mouseover", function () {
@@ -1072,7 +1077,8 @@ function favoritesClickOnDocumentReady(isAuthenticated) {
          }
 		
 
-         if (!$("html").hasClass("this-is-old-ie")) {
+        
+        if (!(($("html").hasClass("this-is-old-ie"))) && !(document.documentElement.clientWidth < 568)) {
              if ($(this).is(".photo-area .ga-icon-favourite.icon-favourite-active")) {
                  var clone_img = $(this).parent().parent().find(".swiper-slide-active img");
                  if ((clone_img.clone() !== null) && (clone_img.clone() !== undefined)) {

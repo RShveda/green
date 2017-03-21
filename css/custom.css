@@ -20,7 +20,7 @@
 @font-face {
     font-family: 'GaIcons';
     src: url('../fonts/GaIcons.eot?v=7');
-    src: url('../fonts/GaIcons.eot#iefix?v=7') format('embedded-opentype'), url('../fonts/GaIcons.ttf?v=7') format('truetype'), url('../fonts/GaIcons.woff?v=7') format('woff'), url('../fonts/GaIcons.svg?#GaIcons&v=7') format('svg');
+    src: url('../fonts/GaIcons.eot#iefix?v=7') format('embedded-opentype'), url('../fonts/GaIcons.woff') format('woff'), url('../fonts/GaIcons.ttf?v=7') format('truetype'), url('../fonts/GaIcons.svg?#GaIcons&v=7') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -4795,10 +4795,10 @@ code, .code {
     .item-main .descr-area {
         padding-bottom: 15px;
         background: black; /* For browsers that do not support gradients */
-        background: -webkit-linear-gradient(to bottom, rgba(220,220,220,0.6), rgba(0,0,0,1)); /* For Safari 5.1 to 6.0 */
-        background: -o-linear-gradient(to bottom, rgba(220,220,220,0.6), rgba(0,0,0,1));/* For Opera 11.1 to 12.0 */
-        background: -moz-linear-gradient(to bottom, rgba(220,220,220,0.6), rgba(0,0,0,1));/* For Firefox 3.6 to 15 */
-        background: linear-gradient(to bottom, rgba(220,220,220,0.6), rgba(0,0,0,1)); /* Standard syntax (must be last) */
+        background: -webkit-linear-gradient(to bottom, rgba(220,220,220,0), rgba(0,0,0,1)); /* For Safari 5.1 to 6.0 */
+        background: -o-linear-gradient(to bottom, rgba(220,220,220,0), rgba(0,0,0,1));/* For Opera 11.1 to 12.0 */
+        background: -moz-linear-gradient(to bottom, rgba(220,220,220,0), rgba(0,0,0,1));/* For Firefox 3.6 to 15 */
+        background: linear-gradient(to bottom, rgba(220,220,220,0), rgba(0,0,0,1)); /* Standard syntax (must be last) */
         bottom: 45px;
         z-index: 10;
     }
@@ -4872,6 +4872,14 @@ code, .code {
         line-height: 1.4em;
     }
 }
+@media (max-width: 364px) {
+    .properties-list li:nth-child(even) {
+        border-right: none;
+    }
+    .properties-list li:nth-child(odd) {
+        border-right: 1px solid #86aa22;
+    }
+}
 @media (max-width: 320px) {
     .small-nav .list-part {
         margin: 0 0 5px 0;
@@ -4883,11 +4891,17 @@ code, .code {
         width: 320px;
     }
     .more-properties {
-        width: 290px;
+        width: 300px;
     }
     .properties-list li {
         flex-basis: 45%;
         -webkit-flex-basis: 45%;
-        max-width: 145px;
+        max-width: 150px;
+    }
+    .properties-list li:nth-child(even) {
+        border-right: none;
+    }
+    .properties-list li:nth-child(odd) {
+        border-right: 1px solid #86aa22;
     }
 }
