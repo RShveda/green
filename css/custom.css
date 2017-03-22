@@ -4835,10 +4835,6 @@ code, .code {
     button.btn-alert .button-title {
         display: none;
     }
-    div.alert-part button.btn-alert,
-    div.sorting-by button.btn-sort {
-        height: 60px;
-    }
     .items-grid {
         width: 100%;
     }
