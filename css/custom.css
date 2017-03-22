@@ -2513,7 +2513,7 @@ a.item-location {
     }
 
     .properties-list li {
-        -ms-flex-preferred-size: 33%;
+        -ms-flex-preferred-size: 25%;
     }
 
     .list-part li {
@@ -4818,6 +4818,13 @@ code, .code {
     .region-links-section {
         background-color: white;
     }
+    .pagination>li>a, .pagination>li>span {
+        padding: 3px 6px;
+    }
+    .pagination a[aria-label] {
+        font-size: 1.1em;
+        padding: 2.5px 5px;
+    }
 }    
 @media (max-width: 480px) {
     button.btn-sort .button-title,
@@ -4830,14 +4837,22 @@ code, .code {
     h1.alert-title {
         min-width: calc(100% - 100px);
     } 
-    .pagination>li>a, .pagination>li>span {
-        padding: 3px 6px;
+}
+@media (max-width: 397px) {
+    .properties-list li {
+        -ms-flex-preferred-size: 22%;
     }
-    .pagination a[aria-label] {
-        font-size: 1.1em;
-        padding: 2.5px 5px;
+}
+@media (max-width: 381px) {
+    .properties-list li:nth-child(even) {
+        border-right: none;
     }
-
+    .properties-list li:nth-child(odd) {
+        border-right: 1px solid #86aa22;
+    }
+    .properties-list li {
+        -ms-flex-preferred-size: 25%;
+    }
 }
 @media (max-width: 375px) {
     .other-pages .header-row > div.search-input {
@@ -4870,14 +4885,6 @@ code, .code {
     h1.alert-title {
         font-size: 1em;
         line-height: 1.4em;
-    }
-}
-@media (max-width: 364px) {
-    .properties-list li:nth-child(even) {
-        border-right: none;
-    }
-    .properties-list li:nth-child(odd) {
-        border-right: 1px solid #86aa22;
     }
 }
 @media (max-width: 320px) {
