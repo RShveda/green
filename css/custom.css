@@ -4722,7 +4722,7 @@ code, .code {
         z-index: 21;
         min-width: 50%;
         margin: 0px;
-        height: 60px;
+        height: 50px;
         border-radius: 0;
     }
     div.sorting-by button.btn-sort {
@@ -4764,6 +4764,8 @@ code, .code {
         display: inline-flex;
         float: right;
         color: white;
+        top: 25px;
+        position: relative;
     }
     .item-details ul li,
     .item-main .item-details .ga-icons {
@@ -4788,18 +4790,20 @@ code, .code {
         color: white;
         font-size: 1.2em;
         padding-top: 2px;
+        top: 25px;
+        position: relative;
     }
     .item-main {
         height: 245px;
     }
     .item-main .descr-area {
-        padding-bottom: 15px;
         background: black; /* For browsers that do not support gradients */
         background: -webkit-linear-gradient(to bottom, rgba(220,220,220,0), rgba(0,0,0,1)); /* For Safari 5.1 to 6.0 */
         background: -o-linear-gradient(to bottom, rgba(220,220,220,0), rgba(0,0,0,1));/* For Opera 11.1 to 12.0 */
         background: -moz-linear-gradient(to bottom, rgba(220,220,220,0), rgba(0,0,0,1));/* For Firefox 3.6 to 15 */
         background: linear-gradient(to bottom, rgba(220,220,220,0), rgba(0,0,0,1)); /* Standard syntax (must be last) */
-        bottom: 45px;
+        bottom: 60px;
+        height: 60px;
         z-index: 10;
     }
     .pagination-area {
@@ -4830,6 +4834,10 @@ code, .code {
     button.btn-sort .button-title,
     button.btn-alert .button-title {
         display: none;
+    }
+    div.alert-part button.btn-alert,
+    div.sorting-by button.btn-sort {
+        height: 60px;
     }
     .items-grid {
         width: 100%;
