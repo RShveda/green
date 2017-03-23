@@ -1420,7 +1420,8 @@ header.other-pages {
 .refine-switch {
     display: none;
     float: right;
-    padding-top: 6px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 .other-pages .header-row {
     margin-top: 0;

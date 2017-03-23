@@ -1608,7 +1608,7 @@ textarea.standard-input {
 
 .info-row .info-alert {
     margin-top: 10px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     height: auto;
 }
 
@@ -4666,8 +4666,6 @@ code, .code {
 @media (max-width: 600px) {
     body {
         min-width: 220px;
-        /*overflow-x: hidden;
-        -webkit-overflow-scrolling: touch;*/
         margin: 0;
     }
     .other-pages .city-autocomplete-wrapper {
@@ -4714,6 +4712,9 @@ code, .code {
         -webkit-overflow-scrolling: touch;*/
         margin: 0;
     }
+    .sorting-by {
+        padding-bottom: 0px;
+    }
     div.alert-part button.btn-alert,
     div.sorting-by button.btn-sort {
         position: fixed;
@@ -4724,6 +4725,7 @@ code, .code {
         margin: 0px;
         height: 50px;
         border-radius: 0;
+        padding-left: 10px;
     }
     div.sorting-by button.btn-sort {
         left: 0px;
@@ -4766,6 +4768,7 @@ code, .code {
         color: white;
         top: 25px;
         position: relative;
+        margin-right: 5px;
     }
     .item-details ul li,
     .item-main .item-details .ga-icons {
@@ -4829,6 +4832,14 @@ code, .code {
         font-size: 1.1em;
         padding: 2.5px 5px;
     }
+    .btn-recruiting, .inscriptionLink {
+        font-size: 0.8em;
+        width: 160%;
+    }
+    footer {
+        z-index: 1;
+        position: relative;
+    }
 }    
 @media (max-width: 480px) {
     button.btn-sort .button-title,
@@ -4880,7 +4891,7 @@ code, .code {
         height: 80px;
     }
     .info-row, .items-grid {
-        top: 228px;
+        top: 222px;
     }
     .header-row.row.search-page .search-input .label-m-search,
     .header-row.row.search-page .search-input .label-m-menu {
@@ -4889,6 +4900,9 @@ code, .code {
     h1.alert-title {
         font-size: 1em;
         line-height: 1.4em;
+    }
+    .footer-divider {
+        border-bottom: none;
     }
 }
 @media (max-width: 320px) {
