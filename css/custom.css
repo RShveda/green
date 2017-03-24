@@ -2309,6 +2309,7 @@ a.item-location {
 
 .breadcrumbs-section {
     border-top: 1px solid #d9dbda;
+    position: relative;
 }
 
 .breadcrumbs-area {
@@ -3528,11 +3529,11 @@ div.tagsinput div {
 }
 .header-row.row.search-page .search-input .label-m-search {
     display: none;
-    float: right;
+    float: left;
 }
 .header-row.row.search-page .search-input .label-m-menu {
     display: none;
-    float: left;
+    float: right;
 }
 
 .home.other-pages .city-autocomplete-wrapper {
@@ -4666,7 +4667,17 @@ code, .code {
 @media (max-width: 600px) {
     body {
         min-width: 220px;
+        /*overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;*/
         margin: 0;
+    }
+    header.other-pages .header-row.rtl-version .logo {
+        display: inline-block;
+        position: static;
+    }
+    header.other-pages .header-row.rtl-version .logo a img {
+        position: static !important;
+        transform: none !important;
     }
     .other-pages .city-autocomplete-wrapper {
         background-color: transparent; 
@@ -4685,6 +4696,7 @@ code, .code {
     .header-row.row.search-page .search-input .label-m-menu {
         display: block;
         padding-top: 4px;
+        margin: 0px 8px 8px 8px;
     }
     .header-row.search-page .text-right {
         display: none;
@@ -4727,6 +4739,11 @@ code, .code {
         border-radius: 0;
         padding-left: 10px;
     }
+    div.alert-part button.btn-alert .ga-icon-bell,
+    div.sorting-by button.btn-sort .ga-icon-sort {
+        width: 40px;
+        padding-left: 0px;
+    }
     div.sorting-by button.btn-sort {
         left: 0px;
         display: block;
@@ -4764,11 +4781,11 @@ code, .code {
     }
     .item-main .descr-area .item-details {
         display: inline-flex;
-        float: right;
+        float: left;
+        margin-left: 10px;
         color: white;
         top: 25px;
         position: relative;
-        margin-right: 5px;
     }
     .item-details ul li,
     .item-main .item-details .ga-icons {
@@ -4786,6 +4803,9 @@ code, .code {
     .descr-area .item-title {
         display: none;
     }
+    .descr-area .ga-icon-map-marker {
+        padding-right: 17px;
+    }
     .items-grid .item-location {
         margin-left: 10px;
         max-width: calc(100% - 140px);
@@ -4795,6 +4815,8 @@ code, .code {
         padding-top: 2px;
         top: 25px;
         position: relative;
+        margin-right: 10px !important;
+        float: right;
     }
     .item-main {
         height: 245px;
@@ -4813,7 +4835,8 @@ code, .code {
         margin: 40px 0 30px 0;
         width: 100%;
         min-height: 300px;
-        /*min-width: 500px;*/
+        position: relative;
+        z-index: 0;
     }
     .refine-switch {
         display: block;
@@ -4825,12 +4848,19 @@ code, .code {
     .region-links-section {
         background-color: white;
     }
+    .pagination {
+        padding-right: 0px;
+    }
     .pagination>li>a, .pagination>li>span {
         padding: 3px 6px;
     }
     .pagination a[aria-label] {
         font-size: 1.1em;
         padding: 2.5px 5px;
+    }
+    .btn-recruiting {
+        font-size: 0.8em;
+        width: 160%;
     }
     .btn-recruiting, .inscriptionLink {
         font-size: 0.8em;

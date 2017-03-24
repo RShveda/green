@@ -2309,6 +2309,7 @@ a.item-location {
 
 .breadcrumbs-section {
     border-top: 1px solid #d9dbda;
+    position: relative;
 }
 
 .breadcrumbs-area {
