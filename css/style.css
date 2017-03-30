@@ -5542,50 +5542,6 @@ header.home.individual-page {
     }
 }
 
-@media (max-width: 606px) {
-    header.home.home-register {
-        height: 500px;
-    }
-}
-
-@media (max-width: 600px) {
-
-    .rtl .map-img {
-        width: 100%;
-    }
-
-    .items-grid .grid {
-        justify-content: center;
-        -webkit-justify-content: center;
-    }
-
-    .items-grid .item-main {
-        flex-basis: 40%;
-        -webkit-flex-basis: 40%;
-        /*min-width: 290px;*/
-        /*max-width: 70%;*/
-        min-width: 100%;
-    }
-
-        .items-grid .item-main:nth-child(2n),
-        .items-grid .item-main:nth-child(2n+1) {
-            margin-right: 0;
-            margin-left: 0;
-        }
-
-    .contact-form-area .form-area {
-        padding: 60px 40px 40px 40px;
-    }
-
-    .price {
-        width: 220px;
-    }
-
-    .price-value {
-        font-size: 6em;
-    }
-}
-
 .btn-continue {
     background: #84a824;
     color: #fff;

@@ -59,6 +59,9 @@ function commonOnDocumentReady() {
             window.location.href = $(this).data('language-link');
         }
     });
+    $(".btn-m-menu").click(function () {
+        $("#panel-menu").toggleClass("panel-on");
+    })
 
     select.on("click", function () {
         var closeList = $(this).find(options_area).hasClass("show-list");
@@ -765,6 +768,21 @@ function searchAlertOnDocumentReady(countNewPage) {
         };
     
         $(".alert-part .btn-alert").removeAttr('disabled');
+
+        $(".sorting-by .btn-sort").on("click", function (e) {
+            $("#createSortAlertDialog").modal('show');
+        });
+        window.PrepareSortAlertForm = function () {
+            $("#sortAlertForm .btn-send").on("click", function (e) {
+                if ($("#sortAlertForm").valid()) {
+                    $(this).prop('disabled', true);
+                      $("#sortAlertForm").submit();
+                }
+            });
+        };
+        PrepareSortAlertForm();  
+    
+        $(".sorting-by .btn-sort").removeAttr('disabled');
     }
 }
 
