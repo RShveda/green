@@ -414,16 +414,6 @@
     .properties-list li {
         -ms-flex-preferred-size: 22%;
     }
-    #panel-menu {
-        left: -250px;
-    }
-    .panel-on {
-        transform:translateX(250px);
-        -webkit-transform:translateX(250px);
-        -moz-transform:translateX(250px);
-        -o-transform:translateX(250px);
-        -ms-transform:translateX(250px);
-    }
 }
 @media (max-width: 381px) {
     .properties-list li:nth-child(even) {
