@@ -59,8 +59,53 @@ function commonOnDocumentReady() {
             window.location.href = $(this).data('language-link');
         }
     });
+
+    var panelHeight;
+    var screenHeight; 
+    var menuListHeight;
+    var panelMenu = $("#panel-menu");
+                $(document).mouseup(function (e) {
+                var container = panelMenu;
+                if (container.has(e.target).length === 0){
+                    container.removeClass("panel-on");
+                }
+            });
+    $(window).on("orientationchange",function(){
+        if(panelMenu.hasClass("panel-on")) {
+            screenHeight = window.screen.height;//$(window).height();
+            if (document.documentElement.clientWidth < 376) {
+                panelMenu.css("height", (screenHeight - 80) + "px");
+                menuListHeight = panelHeight = panelMenu.css("height");         
+                $(".menu-list").css("height", menuListHeight);
+            }
+            else {
+                panelMenu.css("height", (screenHeight - 95) + "px");
+                menuListHeight = panelHeight = panelMenu.css("height");
+                $(".menu-list").css("height", menuListHeight);
+            } 
+        }   
+    });
+
     $(".btn-m-menu").click(function () {
-        $("#panel-menu").toggleClass("panel-on");
+        panelMenu.toggleClass("panel-on");
+        if(panelMenu.hasClass("panel-on")) {
+            $(".header-row").addClass("position-fixed");
+        }
+        else {
+            $(".other-pages .header-row").removeClass("position-fixed");
+        }
+
+        screenHeight = window.screen.height;//$(window).height();
+        if (document.documentElement.clientWidth < 376) {
+            panelMenu.css("height", (screenHeight - 80) + "px");
+            menuListHeight = panelHeight = panelMenu.css("height");         
+            $(".menu-list").css("height", menuListHeight);
+        }
+        else {
+            panelMenu.css("height", (screenHeight - 95) + "px");
+            menuListHeight = panelHeight = panelMenu.css("height");
+            $(".menu-list").css("height", menuListHeight);
+        }
     })
 
     select.on("click", function () {
