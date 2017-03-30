@@ -64,15 +64,15 @@ function commonOnDocumentReady() {
     var screenHeight; 
     var menuListHeight;
     var panelMenu = $("#panel-menu");
-                $(document).mouseup(function (e) {
-                var container = panelMenu;
-                if (container.has(e.target).length === 0){
-                    container.removeClass("panel-on");
-                }
-            });
+    $(document).mouseup(function (e) {
+        var container = $(".menu-list");
+        if (container.has(e.target).length === 0){
+            panelMenu.removeClass("panel-on");
+        }
+    });
     $(window).on("orientationchange",function(){
         if(panelMenu.hasClass("panel-on")) {
-            screenHeight = window.screen.height;//$(window).height();
+            screenHeight = $(window).height();//window.screen.height;
             if (document.documentElement.clientWidth < 376) {
                 panelMenu.css("height", (screenHeight - 80) + "px");
                 menuListHeight = panelHeight = panelMenu.css("height");         
@@ -95,7 +95,7 @@ function commonOnDocumentReady() {
             $(".other-pages .header-row").removeClass("position-fixed");
         }
 
-        screenHeight = window.screen.height;//$(window).height();
+        screenHeight = $(window).height();//window.screen.height;//
         if (document.documentElement.clientWidth < 376) {
             panelMenu.css("height", (screenHeight - 80) + "px");
             menuListHeight = panelHeight = panelMenu.css("height");         

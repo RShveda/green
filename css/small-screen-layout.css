@@ -416,7 +416,6 @@
     }
     #panel-menu {
         left: -250px;
-        width: 250px;
     }
     .panel-on {
         transform:translateX(250px);
