@@ -4679,6 +4679,8 @@ code, .code {
     margin-left: 15px;
     font-size: 1.3em;
     color: #86aa22;
+    width: 24px;
+    display: inline-block;
 }
 .panel-on {
     display: block !important;
@@ -4741,5 +4743,8 @@ code, .code {
 #sortAlertContainer .btn-send {
     border-radius: 6px;
     font-size: 16px;
+}
+.more-filter-text span {
+    display: none;
 }
 
