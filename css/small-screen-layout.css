@@ -352,6 +352,9 @@
         z-index: 1;
         position: relative;
     }
+    #panel-menu {
+        display: block;
+    }
     /* FILTER */
     .filters-hide {
         height: 0px;
@@ -378,7 +381,23 @@
         width: 100%;
         margin: auto;
     }
-    .min, .max {
+    .noUi-target, .min-max-values-info {
+        display: none;
+    }
+    .filters-content {
+        height: auto;
+    }
+    .filters-content#filter-1, 
+    .filters-content#filter-2, 
+    .filters-content#filter-3,
+    .currency-listing {
+        padding-right: 15px;
+        padding-left: 15px;
+        max-width: 290px;
+        min-width: 60%;
+    }
+    .min, .max,
+    .currency-listing .component-currency {
         font-size: 18px;
         border: 1px solid rgb(204, 204, 204);
         border-radius: 6px;
@@ -386,17 +405,54 @@
         color: rgb(148, 148, 148);
         line-height: 1.2;
         text-align: left;
+        display: block;
+        max-width: 100%;
+        padding: 0 15px;
     }
-    .noUi-target, .min-max-values-info {
-        display: none;
+    .currency-listing .search-par {
+        height: 30px;
+        margin-top: 2px;
+        width: 0px;
+        color: rgb(148, 148, 148);
+        line-height: 32px;
     }
-    .filters-content#filter-1, 
-    .filters-content#filter-2, 
-    .filters-content#filter-3 {
+    .currency-listing .ga-icons {
+        line-height: 38px;
+        font-size: 14px;
+        float: right;
+        width: 15px;
+    }
+    .filters-button-area {
+        max-width: 290px;
+        min-width: 60%;
         padding-right: 15px;
         padding-left: 15px;
     }
-  
+    .show-more-filters {
+        height: 40px;
+        background-color: #86aa22;
+        border-radius: 6px;
+        text-align: center;
+        line-height: 40px;
+        max-width: 100%;
+    }
+    .btn-filter {
+        width: 16px;
+        height: 40px;
+        background: transparent;
+        color: #fff;
+        margin-top: 0px !important;
+        margin-right: 0px !important;
+    }
+    .btn-filter:before, .btn-filter:after {
+        width: 16px;
+        height: 4px;
+        background: #fff;
+        border-radius: 1px;
+    }
+    .btn-filter:hover {
+        background: transparent;
+    }
 }    
 @media (max-width: 480px) {
     button.btn-sort .button-title,
