@@ -69,7 +69,10 @@ function commonOnDocumentReady() {
     $(window).on("orientationchange",function(){
         if(panelMenu.hasClass("panel-on")) {
             screenHeight = $(window).height();//window.screen.height;
-            if (document.documentElement.clientWidth < 376) {
+            if (document.documentElement.clientWidth > 600) {
+                $(".other-pages .header-row").removeClass("position-fixed");
+            }
+            else if (document.documentElement.clientWidth < 376) {
                 panelMenu.css("height", (screenHeight - 80) + "px");
                 menuListHeight = panelHeight = panelMenu.css("height");         
                 $(".menu-list").css("height", menuListHeight);
@@ -84,23 +87,19 @@ function commonOnDocumentReady() {
 
     $(".btn-m-menu").click(function () {
         //panelMenu.toggleClass("panel-on");
-        if(!(panelMenu.hasClass("panel-on"))) {
-            panelMenu.addClass("panel-on");
-            $('#nav-icon3').addClass("open");
-            $(".header-row").addClass("position-fixed");
-            panelMenu.css("animation","mymove 1s 1 forwards");
-            $(document).mouseup(function (e) {
-                var container = $(".menu-list");
-                if (container.has(e.target).length === 0){
-                    panelMenu.css("animation","mymoveback 1s 1 forwards");
-                }
-            });
-        }
-        else {
+        //console.log(panelMenu.hasClass("panel-on"));
+        if(panelMenu.hasClass("panel-on")) {
             $('#nav-icon3').removeClass("open");
             $(".other-pages .header-row").removeClass("position-fixed");
             panelMenu.css("animation","mymoveback 1s 1 forwards");
-            panelMenu.removeClass("panel-on");
+            panelMenu.removeClass("panel-on");           
+        }
+        else {
+            panelMenu.addClass("panel-on");
+            //console.log(panelMenu.hasClass("panel-on"));
+            $('#nav-icon3').addClass("open");
+            $(".header-row").addClass("position-fixed");
+            panelMenu.css("animation","mymove 1s 1 forwards");
         }
 
         screenHeight = $(window).height();//window.screen.height;//
@@ -114,7 +113,15 @@ function commonOnDocumentReady() {
             menuListHeight = panelHeight = panelMenu.css("height");
             $(".menu-list").css("height", menuListHeight);
         }
-    })
+    });
+            $(document).mouseup(function (e) {
+                var container = $(".menu-list");
+                if ((container.has(e.target).length === 0) && (panelMenu.hasClass("panel-on"))){
+                    panelMenu.css("animation","mymoveback 1s 1 forwards");
+                    $('#nav-icon3').removeClass("open");
+                    //console.log("hello");
+                }
+            });
 
     select.on("click", function () {
         var closeList = $(this).find(options_area).hasClass("show-list");
