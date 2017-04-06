@@ -223,6 +223,7 @@ function searchFiltersOnDocumentReady() {
         }
         else {
             closeFilters(false);
+            $(".header-row").removeClass("position-fixed");
             $(".city-block").css("display","none");
             $(".filters-row").css("display","none");
         }
@@ -235,6 +236,7 @@ function searchFiltersOnDocumentReady() {
             window.searchFormAjaxDesactivated = true;
             restoreFilterValuesFromState(window.previousState, false);
             closeFilters();
+            $(".header-row").removeClass("position-fixed");
             $(".city-block").css("display","none");
             $(".filters-row").css("display","none");
             window.searchFormAjaxDesactivated = false;
