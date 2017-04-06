@@ -761,7 +761,8 @@ header.home .logo .logo-part-small {
     font-size: 0.9em;
 }
 
-.search-input input {
+.search-input input, 
+.city-block input {
     font-size: 1.35em;
 }
 
@@ -770,11 +771,13 @@ header.home .logo .logo-part-small {
     font-size: 0.8em;
 }
 
-.search-input input {
+.search-input input,
+.city-block input {
     font-size: 1.35em;
 }
 
-.search-input input {
+.search-input input,
+.city-block input {
     font-size: 1.15em;
 }
 
@@ -1322,6 +1325,9 @@ header.home .logo img {
         font: 1.0em Corbel Regular, sans-serif;
         padding: 0;
     }
+    .city-block {
+        margin: 0 !important;
+    }
 }
 
 @media (max-width: 727px) {
@@ -1594,7 +1600,8 @@ textarea.standard-input {
 }
 
 @media (max-width: 990px) {
-    .other-pages .header-row > div.search-input {
+    .other-pages .header-row > div.search-input,
+    .city-block {
         border: none;
         height: 60px;
     }
@@ -2272,7 +2279,9 @@ a.item-location {
         flex: initial;
     }
 
-        .other-pages .header-row > div.search-input, .other-pages .header-row > div.AdvertNavigationBar {
+        .other-pages .header-row > div.search-input,
+        .other-pages .header-row > div.AdvertNavigationBar,
+        .city-block {
             -ms-flex: 1;
             -webkit-flex: 1;
             flex: 1;
@@ -3514,7 +3523,8 @@ div.tagsinput div {
     color: #90111A !important;
 }
 
-.header-row.row.search-page .search-input label {
+.header-row.row.search-page .search-input label,
+.city-block label {
     display: block;
     float: left;
     margin: 8px;
@@ -3537,7 +3547,8 @@ div.tagsinput div {
         top: 20px;
     }
 
-    .header-row.row.search-page .search-input label {
+    .header-row.row.search-page .search-input label,
+    .city-block label {
         margin-top: 8px;
     }
 }
@@ -3557,6 +3568,11 @@ div.tagsinput div {
 .currency-listing {
     margin-left: -30px;
     margin-top: 35.7px;
+}
+
+.currency-listing .filter-name,
+.city-autocomplete-wrapper .filter-name {
+    display: none;
 }
 
 .ipad .currency-listing {
@@ -3770,7 +3786,7 @@ div.tagsinput div {
 }
 
 .filters-content.more-checkbox.filters-properties.row.opened {
-    height: auto;
+    height: auto !important;
 }
 
 .more-filters div.filters:last-child {
@@ -4673,6 +4689,7 @@ code, .code {
     font-size: 18px;
     border-bottom: 1px solid #d9dbda;
     line-height: 50px;
+    cursor: pointer;
 }
 .menu-item span.ga-icons {
     margin-right: 30px;
@@ -4747,4 +4764,41 @@ code, .code {
 .more-filter-text span {
     display: none;
 }
-
+.filters-button-area .btn-apply {
+    display: none;
+}
+.city-block {
+    width: 33%;
+    margin: auto;
+    position: relative;
+    top: -60px;
+    height: 60px;
+    padding: 7px;
+}
+.other-pages .header-row > div.search-input {
+    border: none;
+}
+.home.other-pages .city-autocomplete-wrapper {
+    width: 96%;
+}
+header.other-pages {
+    /*height: 61px;*/
+    height: auto;
+    margin-bottom: -58px;
+}
+div.tagsinput div {
+    display: inline-block;
+    float: left;
+    width: 30%;
+}
+.component-checkbox-list {
+    display: none;
+}
+.filters-title .ga-icon-budget-arrow {
+    display: none;
+    position: absolute;
+    left: 0px;
+    top: -9px;
+    padding: 15px;
+    transform: scaleX(-1);
+}

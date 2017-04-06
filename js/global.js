@@ -92,10 +92,10 @@ function commonOnDocumentReady() {
             $('#nav-icon3').removeClass("open");
             $(".other-pages .header-row").removeClass("position-fixed");
             panelMenu.css("animation","mymoveback 1s 1 forwards");
-            panelMenu.removeClass("panel-on");           
+            panelMenu.toggleClass("panel-on");           
         }
         else {
-            panelMenu.addClass("panel-on");
+            panelMenu.toggleClass("panel-on");
             //console.log(panelMenu.hasClass("panel-on"));
             $('#nav-icon3').addClass("open");
             $(".header-row").addClass("position-fixed");
@@ -114,7 +114,7 @@ function commonOnDocumentReady() {
             $(".menu-list").css("height", menuListHeight);
         }
     });
-            $(document).mouseup(function (e) {
+            $(document).on( "mousedown touchstart", function(e) {//mouseup(function (e) {
                 var container = $(".menu-list");
                 if ((container.has(e.target).length === 0) && (panelMenu.hasClass("panel-on"))){
                     panelMenu.css("animation","mymoveback 1s 1 forwards");
@@ -122,7 +122,10 @@ function commonOnDocumentReady() {
                     //console.log("hello");
                 }
             });
-
+    $(".btn-m-search").on("click", function () {
+        $(".item-search").trigger("click");
+    });
+    
     select.on("click", function () {
         var closeList = $(this).find(options_area).hasClass("show-list");
         select.parent().find(".show-list").removeClass("show-list");
@@ -608,9 +611,15 @@ function searchOrderOnDocumentReady() {
         }
         $(this).parent().find(".show-list").removeClass("show-list");
 
-        setTimeout(function () {
-            $("body").trigger("click");
-        }, 0);
+        if (document.documentElement.clientWidth > 600) {
+            setTimeout(function () {
+                $("body").trigger("click");
+            }, 0);
+        } 
+        else {
+            enableApplyButtonIfChanged();
+        }
+        
     });
 
     $(window).on("click touchend", function (e) {
@@ -827,7 +836,10 @@ function searchAlertOnDocumentReady(countNewPage) {
             Cookies.set('show_mail_alert_dialog', Math.max(0, Cookies.get('show_mail_alert_dialog') - 1), { expires: 1, path: '/' });
         };
     
-        $(".alert-part .btn-alert").removeAttr('disabled');
+       $(".alert-part .btn-alert").removeAttr('disabled'); 
+    }
+}
+function searchSortAlertOnDocumentReady(countNewPage) {
 
         $(".sorting-by .btn-sort").on("click", function (e) {
             $("#createSortAlertDialog").modal('show');
@@ -836,14 +848,17 @@ function searchAlertOnDocumentReady(countNewPage) {
             $("#sortAlertForm .btn-send").on("click", function (e) {
                 if ($("#sortAlertForm").valid()) {
                     $(this).prop('disabled', true);
-                      $("#sortAlertForm").submit();
+                    searchFormAjaxSubmit();
+                    //setTimeout(function () {
+                       // $("body").trigger("click");
+                    //}, 0);
+                    //$("#sortAlertForm").submit();
                 }
             });
         };
         PrepareSortAlertForm();  
     
         $(".sorting-by .btn-sort").removeAttr('disabled');
-    }
 }
 
 function autocompleteOnDocumentReady() {
@@ -896,7 +911,7 @@ function autocompleteOnDocumentReady() {
         if (window.addTagFromAutocomplete === true) {
             window.addTagFromAutocomplete = false;
             if ($('#searchForm').length) {
-                if ($("html.opened-filters").length == 0) {
+                if (($("html.opened-filters").length == 0) && (document.documentElement.clientWidth > 600)) {
                     searchFormAjaxSubmit();
                 } else {
                     enableApplyButtonIfChanged();
@@ -917,7 +932,7 @@ function autocompleteOnDocumentReady() {
             window.removeTagWithoutSubmit = false;
         } else {
             if ($('#searchForm').length) {
-                if ($("html.opened-filters").length == 0) {
+                if (($("html.opened-filters").length == 0) && (document.documentElement.clientWidth > 600)) {
                     searchFormAjaxSubmit();
                 } else {
                     enableApplyButtonIfChanged();

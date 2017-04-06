@@ -1372,7 +1372,8 @@ header.other-pages {
         min-width: 290px;
     }
 
-        .other-pages .header-row > div.search-input {
+        .other-pages .header-row > div.search-input,
+        .city-block {
             flex: 2;
             -webkit-flex: 2;
             border-left: 1px solid #eae8e8;
@@ -1428,7 +1429,8 @@ header.other-pages {
     height: 80px;
 }
 
-.search-input input {
+.search-input input,
+.city-block input {
     height: 40px;
     border: none;
     outline: none;
@@ -4623,7 +4625,8 @@ header.home.individual-page {
             text-align: center;
         }
 
-        .other-pages .header-row > div.search-input {
+        .other-pages .header-row > div.search-input,
+        .city-block{
             border-left: none;
             border-right: none;
             border-bottom: 1px solid #eae8e8;

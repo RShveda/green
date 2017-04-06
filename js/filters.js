@@ -20,12 +20,17 @@ function compareTwoHistoryStateData(state1, state2) {
 }
 
 function openFilters(scrollToTop) {
+    if (document.documentElement.clientWidth < 600) {
+         $(".filters-title .ga-icon-budget-arrow").css("display","block");  
+    }
     if (scrollToTop !== false && $(window).scrollTop() > 30) {
         $("html, body").animate({ scrollTop: 0 }, 200);
         setTimeout(function() { openFilters(false); }, 250);
         return;
     }
-    $(".show-more-filters").hide();
+    //$(".show-more-filters").hide();
+    $(".more-filters").css("min-height",  ($(window).height() - 570) + "px");
+    $(".filters-button-area").hide();
     var morePropertiesMargin = $("#searchForm > input + section").height() + $("#searchAjaxContent").height();
     var footerMargin = morePropertiesMargin + $('header').height() + $("section.more-properties").height() - 20;
     $("body").toggleClass("open-filters");
@@ -41,12 +46,16 @@ function openFilters(scrollToTop) {
 }
 
 function closeFilters(scrollToTop) {
+    if (document.documentElement.clientWidth < 600) {
+         $(".filters-title .ga-icon-budget-arrow").css("display","none");  
+    }
     if (scrollToTop !== false && $(window).scrollTop() > 30) {
         $("html, body").animate({ scrollTop: 0 }, 200);
         setTimeout(function() { closeFilters(false); }, 250);
         return;
     }
-    $(".show-more-filters").show();
+    //$(".show-more-filters").show();
+    //$(".filters-button-area").show();
     setTimeout(function() {
         $("body").toggleClass("open-filters");
         $("section.more-properties").css('margin-top', 0);
@@ -67,9 +76,15 @@ function enableApplyButtonIfChanged() {
 }
 
 function searchFiltersOnDocumentReady() {
-    $('#order').on('change', function () {
-        searchFormAjaxSubmit();
-    });
+    if (document.documentElement.clientWidth > 600) {
+        $('#order').on('change', function () {
+            searchFormAjaxSubmit();
+        });
+    }
+    else {
+            enableApplyButtonIfChanged();
+        }
+    
 
     // Add mask to inputs to have separator
     $(".min").mask("000" + jsModel.NumberSeparator + "000" + jsModel.NumberSeparator + "000", { reverse: true });
@@ -78,38 +93,95 @@ function searchFiltersOnDocumentReady() {
     // Show/Hide more filters section
     $(".show-more-filters").on("click", function () {
         var isOpened = $("body").hasClass("open-filters");
-        if (isOpened) {
+        if (isOpened && (document.documentElement.clientWidth > 600)) {
             closeFilters();
-        } else {
-            openFilters();
+        } 
+        else if (isOpened && (document.documentElement.clientWidth < 600)) {
+            $(".filters-button-area").hide();
+            $(".more-filters-area").show();     
+        }
+        else {
+            openFilters();  
         }
     });
 
     $(".filters-content.more-checkbox.filters-properties.row .ga-icon-triangle-down").on("click", function () {
+        if (document.documentElement.clientWidth > 600) {
+            var parentContainer = $(this).closest(".filters-content.more-checkbox.filters-properties.row");
+            var offset = $(this).offset().top - 30;
+            if (!parentContainer.hasClass("opened")) {
+                parentContainer.addClass("opened", 150);
+                $(this).addClass('ga-icon-triangle-up');
+                $('html,body').animate({ scrollTop: offset }, 500);
+            } else {
+                parentContainer.removeClass("opened", 150);
+                $(this).removeClass('ga-icon-triangle-up');
+            }
+        }
+        else {
+            ;
+        }
+    });
+    $(".component-checkbox-list").on("click", function () {
         var parentContainer = $(this).closest(".filters-content.more-checkbox.filters-properties.row");
         var offset = $(this).offset().top - 30;
         if (!parentContainer.hasClass("opened")) {
             parentContainer.addClass("opened", 150);
-            $(this).addClass('ga-icon-triangle-up');
             $('html,body').animate({ scrollTop: offset }, 500);
         } else {
             parentContainer.removeClass("opened", 150);
-            $(this).removeClass('ga-icon-triangle-up');
         }
-    });
+    })
 
     $(".filters-title-area").on("click", function () {
         var isOpened = $("body").hasClass("open-filters");
-        if (isOpened) {
+        if (isOpened && (document.documentElement.clientWidth > 600)) {
             closeFilters();
             $(this).removeClass('ga-icon-triangle-up');
-        } else {
+        } else if ((!isOpened) && (document.documentElement.clientWidth > 600)) {
             $(this).parent().parent().parent().toggleClass("filters-hide");
             $(".more-filters").hide();
             $(".btn-filter").removeClass("btn-filter-close");
             $(".filters-title .ga-icon-triangle-down").toggleClass(" ga-icon-triangle-up");
         }
+        else {
+            ;
+        }
     });
+    $(".filters-title .ga-icon-budget-arrow").on("click", function () {
+        $(".btn-cancel").trigger("click");
+    });
+        $(".item-search").on("click", function () {
+            var isOpened = $("body").hasClass("open-filters");
+            if (isOpened) {
+                closeFilters();
+            } else {
+                openFilters();
+                $(".city-block").css("display","block");
+                $(".filters-row").css("display","block");     
+                $(".filters-button-area").show();
+                $(".more-filters-area").hide();
+                //$(".btn-filter").removeClass("btn-filter-close");
+            }
+            /*$(".filters-row").css("display","block");
+            $(".city-block").css("display","block");
+            $(".more-filters").hide();
+            $("#panel-menu").css("animation","mymoveback 1s 1 forwards");
+            $('#nav-icon3').removeClass("open");
+            $(".btn-filter").removeClass("btn-filter-close");*/
+        });
+        $(".item-advanced-search").on("click", function () {
+            var isOpened = $("body").hasClass("open-filters");
+            if (isOpened) {
+                closeFilters();
+            } else {
+                openFilters();
+                $(".filters-row").css("display","block");
+                $(".city-block").css("display","block");
+                $(".more-filters-area").show();
+            }
+        });
+
 
     // I added this because otherwise form submit doesn't work on IE and Edge
     $('input[name],select[name]').each(function () {
@@ -125,7 +197,7 @@ function searchFiltersOnDocumentReady() {
 
     // Save current state to global variable
     $('#currency').on('change', function () {
-        if ($("html.opened-filters").length == 0) {
+        if (($("html.opened-filters").length == 0) && (document.documentElement.clientWidth > 600)) {
             searchFormAjaxSubmit();
         } else {
             enableApplyButtonIfChanged();
@@ -141,11 +213,21 @@ function searchFiltersOnDocumentReady() {
     });
 
     $('button.btn-cancel').click(function () {
+
         window.searchFormAjaxDesactivated = true;
         restoreFilterValuesFromState(window.previousState, false);
         $('#city').importTags($('#city').val());
-        closeFilters();
+        if(document.documentElement.clientWidth > 600) {
+            closeFilters();
+            $(".filters-button-area").show();
+        }
+        else {
+            closeFilters(false);
+            $(".city-block").css("display","none");
+            $(".filters-row").css("display","none");
+        }
         window.searchFormAjaxDesactivated = false;
+
     });
 
     $(window).on("orientationchange", function () {
@@ -153,6 +235,8 @@ function searchFiltersOnDocumentReady() {
             window.searchFormAjaxDesactivated = true;
             restoreFilterValuesFromState(window.previousState, false);
             closeFilters();
+            $(".city-block").css("display","none");
+            $(".filters-row").css("display","none");
             window.searchFormAjaxDesactivated = false;
         }
     });
@@ -268,8 +352,17 @@ function searchFiltersOnDocumentReady() {
         if (filtersW1[i] >= filtersMax[i]) filtersW1[i] = filtersMax[i];
         if (filtersW2[i] < 0) filtersW2[i] = 0;
         if (filtersW2[i] >= filtersMax[i]) filtersW2[i] = filtersMax[i];
-        filtersValueMin[i].val(filtersValueMin[i].masked(filtersW1[i]));
-        filtersValueMax[i].val((filtersW2[i] == filtersMax[i] ? "> " : "") + filtersValueMax[i].masked(filtersW2[i]));
+        if (document.documentElement.clientWidth < 600) {
+            filtersValueMin[i].val("Min");
+            filtersValueMax[i].val("Max");
+            console.log(filtersValueMax[i].val());
+        }
+        else {
+            filtersValueMin[i].val(filtersValueMin[i].masked(filtersW1[i]));
+            filtersValueMax[i].val((filtersW2[i] == filtersMax[i] ? "> " : "") + filtersValueMax[i].masked(filtersW2[i]));  
+            console.log(filtersValueMax[i].val());
+        }
+        
         filtersRealValueMin[i].val(filtersW1[i]);
         filtersRealValueMax[i].val((i === 2 || i === 4) && filtersW2[i] == filtersMax[i] ?
             (filtersMax[i] + 1) : filtersW2[i]);
@@ -367,7 +460,7 @@ RangeFilterInit = {
                 filterRangeInit.noUiSlider.set([null, filterMax + 1]);
             }
             if (window.is_submitting !== true && (Math.round(window.oldValues[order][0]) != values[0] || Math.round(window.oldValues[order][1]) != values[1])) {
-                if ($("html.opened-filters").length == 0) {
+                if (($("html.opened-filters").length == 0) && (document.documentElement.clientWidth > 600)) {
                     window.isSubmitting = true;
                     searchFormAjaxSubmit();
                     setTimeout(function() {
@@ -408,7 +501,7 @@ RangeFilterInit = {
             }
 
             if (window.oldValues[order][0] != newValue && !window.isSubmitting) {
-                if ($("html.opened-filters").length == 0) {
+                if (($("html.opened-filters").length == 0) && (document.documentElement.clientWidth > 600)) {
                     window.oldValues[order][0] = newValue;
                     searchFormAjaxSubmit();
                 } else {
@@ -446,7 +539,7 @@ RangeFilterInit = {
             }
 
             if (window.oldValues[order][1] != newValue && !window.isSubmitting) {
-                if ($("html.opened-filters").length == 0) {
+                if (($("html.opened-filters").length == 0) && (document.documentElement.clientWidth > 600)) {
                     window.oldValues[order][1] = newValue;
                     searchFormAjaxSubmit();
                 } else {
@@ -466,14 +559,22 @@ function beforeSearchFormAjaxSubmit() {
     }
     if($("body").hasClass("open-filters")){
         closeFilters();
+        console.log("hello1");
     }
 }
 
 function searchFormAjaxSubmit() {
     if (window.searchFormAjaxDesactivated !== true) {
+
         beforeSearchFormAjaxSubmit();
-        // wait fo filters to be closed
+        if (document.documentElement.clientWidth < 600) {
+            $(".city-block").css("display","none");
+            $(".filters-row").css("display","none");
+        }
+        console.log("hello2");
+        // wait for filters to be closed
         if ($("html").hasClass("opened-filters")) {
+            console.log("hello3");
             setTimeout(function() {
                 $("form#searchForm").submit();
             }, 400);
