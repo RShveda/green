@@ -47,7 +47,9 @@ function openFilters(scrollToTop) {
 
 function closeFilters(scrollToTop) {
     if (document.documentElement.clientWidth < 600) {
-         $(".filters-title .ga-icon-budget-arrow").css("display","none");  
+        $(".filters-title .ga-icon-budget-arrow").css("display","none"); 
+        $(".btn-alert").css("display","inline-block");
+        $(".btn-sort").css("display","inline-block"); 
     }
     if (scrollToTop !== false && $(window).scrollTop() > 30) {
         $("html, body").animate({ scrollTop: 0 }, 200);
@@ -161,6 +163,8 @@ function searchFiltersOnDocumentReady() {
                 $(".filters-row").css("display","block");     
                 $(".filters-button-area").show();
                 $(".more-filters-area").hide();
+                $(".btn-alert").css("display","none");
+                $(".btn-sort").css("display","none");
                 //$(".btn-filter").removeClass("btn-filter-close");
             }
             /*$(".filters-row").css("display","block");
@@ -179,6 +183,8 @@ function searchFiltersOnDocumentReady() {
                 $(".filters-row").css("display","block");
                 $(".city-block").css("display","block");
                 $(".more-filters-area").show();
+                $(".btn-alert").css("display","none");
+                $(".btn-sort").css("display","none");
             }
         });
 
