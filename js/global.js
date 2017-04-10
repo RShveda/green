@@ -91,7 +91,7 @@ function commonOnDocumentReady() {
         if(panelMenu.hasClass("panel-on")) {
             setTimeout(function () {
                     panelMenu.toggleClass("panel-on");
-            }, 200);
+            }, 500);
             $('#nav-icon3').removeClass("open");
             $(".other-pages .header-row").removeClass("position-fixed");
             panelMenu.css("animation","mymoveback 1s 1 forwards");
@@ -100,7 +100,7 @@ function commonOnDocumentReady() {
         else {
             setTimeout(function () {
                     panelMenu.toggleClass("panel-on");
-            }, 200);
+            }, 500);
             //console.log(panelMenu.hasClass("panel-on"));
             $('#nav-icon3').addClass("open");
             $(".header-row").addClass("position-fixed");
