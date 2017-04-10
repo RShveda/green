@@ -154,7 +154,7 @@
         min-width: 200px;
     }
 }
-@media (max-width: 600px) {
+@media (max-width: 599px) {
     body {
         min-width: 220px;
         margin: 0;
@@ -387,7 +387,7 @@
     }
     .filters > div {
         display: block;
-        width: 292px;
+        width: 300px;
         margin: auto;
     }
     .noUi-target, .min-max-values-info {
@@ -408,7 +408,7 @@
         padding-left: 0px;
         padding-right: 0px;
         padding-left: 0px;
-        max-width: 292px;
+        max-width: 300px;
         min-width: 292px;
         height: 75px;
     }
@@ -548,9 +548,9 @@
     }
     .city-block {
         height: auto;
-        max-width: 290px;
-        min-width: 51%;
-        margin-left: calc(50% - 144px) !important;
+        max-width: 300px;
+        min-width: 292px;
+        margin-left: calc(50% - 150px) !important;
         margin-top: 10px !important;
         min-height: 89px;
         padding: 0;
@@ -559,7 +559,7 @@
         z-index: 23;
         top: 45px;
         left: 0;
-        width: 100%;
+        width: 300px;
         display: none;
     }
     .currency-listing .filter-name,
@@ -688,7 +688,7 @@
         display: none;
     }
     .range-inputs {
-        max-width: 292px;
+        max-width: 300px;
         display: block;
     }
     .min, .max {
