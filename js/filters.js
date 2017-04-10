@@ -24,6 +24,9 @@ function openFilters(scrollToTop) {
         $(".filters-title .ga-icon-budget-arrow").css("display","block"); 
         $(".more-filters").css("min-height",  ($(window).height() - 570) + "px"); 
         $(".header-row").css("display", "none");
+        $("#panel-menu").removeClass("panel-on");
+        $('#nav-icon3').removeClass("open");
+        $("#panel-menu").css("display", "none");
     }
     if (scrollToTop !== false && $(window).scrollTop() > 30) {
         $("html, body").animate({ scrollTop: 0 }, 200);

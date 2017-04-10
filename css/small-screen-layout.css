@@ -387,7 +387,7 @@
     }
     .filters > div {
         display: block;
-        width: 290px;
+        width: 292px;
         margin: auto;
     }
     .noUi-target, .min-max-values-info {
@@ -408,8 +408,8 @@
         padding-left: 0px;
         padding-right: 0px;
         padding-left: 0px;
-        max-width: 290px;
-        min-width: 290px;
+        max-width: 292px;
+        min-width: 292px;
         height: 75px;
     }
     .filters-content#filter-1 {
@@ -463,7 +463,7 @@
     }
     .component-neighbourhood .component-list,
     .component-checkbox-list .component-list {
-        width: 290px;
+        width: 292px;
         margin-top: 5px;
     }
     .component-neighbourhood .component-selected,
@@ -478,7 +478,7 @@
         padding-left: 0px;
     }
     .filters-button-area {
-        min-width: 290px;
+        min-width: 292px;
         padding-right: 0px;
         padding-left: 0px;
     }
@@ -550,7 +550,7 @@
         height: auto;
         max-width: 290px;
         min-width: 51%;
-        margin-left: calc(50% - 145px) !important;
+        margin-left: calc(50% - 144px) !important;
         margin-top: 10px !important;
         min-height: 89px;
         padding: 0;
@@ -608,7 +608,7 @@
         height: 75px;
     }
     .more-filters .options-list{
-        width: 290px;
+        width: 292px;
         left: -1px;
         top: 33px;
         border-radius: 0 0 6px 6px;
@@ -627,7 +627,7 @@
     }
     .currency-listing .options-list {
         top: 33px;
-        width: 290px;
+        width: 292px;
         left: -1px;
     }
     .more-filters .filters .more-checkbox .checkbox-group {
@@ -661,7 +661,7 @@
     }
     .more-filters-buttons > div {
         margin: auto;
-        width: 290px;
+        width: 292px;
     }
     .btn-cancel, .btn-apply {
         padding: 0 5px;
@@ -671,6 +671,7 @@
         height: 40px;
         font: 1.2em Corbel Regular, sans-serif;
         font-weight: bold;
+        float: none;
     }
     .home.other-pages + form .more-filters {
         padding-bottom: 100px;
@@ -687,11 +688,11 @@
         display: none;
     }
     .range-inputs {
-        max-width: 290px;
+        max-width: 292px;
         display: block;
     }
     .min, .max {
-        width: 134px;
+        width: 136px;
         display: inline-block;
         float: left;
     }
