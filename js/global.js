@@ -88,23 +88,26 @@ function commonOnDocumentReady() {
     $(".btn-m-menu").click(function () {
         //panelMenu.toggleClass("panel-on");
         //console.log(panelMenu.hasClass("panel-on"));
-        if(panelMenu.hasClass("panel-on")) {
+        if (panelMenu.hasClass("panel-on")) {
             setTimeout(function () {
                     panelMenu.toggleClass("panel-on");
             }, 500);
             $('#nav-icon3').removeClass("open");
             $(".other-pages .header-row").removeClass("position-fixed");
             panelMenu.css("animation","mymoveback 1s 1 forwards");
-                       
+            //console.log("menu click close");           
         }
         else {
             setTimeout(function () {
                     panelMenu.toggleClass("panel-on");
+
             }, 500);
-            //console.log(panelMenu.hasClass("panel-on"));
             $('#nav-icon3').addClass("open");
             $(".header-row").addClass("position-fixed");
             panelMenu.css("animation","mymove 1s 1 forwards");
+            //console.log("menu click open");  
+            //console.log(panelMenu.hasClass("panel-on"));
+            
         }
 
         screenHeight = $(window).height();//window.screen.height;//
@@ -121,17 +124,22 @@ function commonOnDocumentReady() {
     });
             $(document).on( "mousedown touchstart", function(e) {//mouseup(function (e) {
                 var container = $(".menu-list");
-                if ((container.has(e.target).length === 0) && (panelMenu.hasClass("panel-on"))){
-                    //panelMenu.css("animation","mymoveback 1s 1 forwards");
-                    //$('#nav-icon3').removeClass("open");
-                    $(".btn-m-menu").trigger("click");
+                var container2 = $(".btn-m-menu");
+                if ((container.has(e.target).length === 0) && (container2.has(e.target).length === 0)  && (panelMenu.hasClass("panel-on"))){
+                    setTimeout(function () {
+                       panelMenu.removeClass("panel-on");  
+                       panelMenu.css("animation","mymoveback 1s 1 forwards");
+                        $('#nav-icon3').removeClass("open");
+                        $(".other-pages .header-row").removeClass("position-fixed");
+                        //console.log("another click close"); 
+                    }, 500);
+                     
+                    //$(".btn-m-menu").trigger("click");
                     //console.log("hello");
                 }
             });
     $(".btn-m-search").on("click", function () {
-        setTimeout(function () {
-                    $(".item-search").trigger("click");
-            }, 200);
+            $(".item-search").trigger("click");
         
     });
     
