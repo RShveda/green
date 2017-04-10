@@ -33,9 +33,8 @@ function openFilters(scrollToTop) {
         setTimeout(function() { openFilters(false); }, 250);
         return;
     }
-    //$(".show-more-filters").hide();
-
-    $(".filters-button-area").hide();
+    $(".show-more-filters").hide();
+    $(".filters-button-area > .btn-apply").hide();
     var morePropertiesMargin = $("#searchForm > input + section").height() + $("#searchAjaxContent").height();
     var footerMargin = morePropertiesMargin + $('header').height() + $("section.more-properties").height() - 20;
     $("body").toggleClass("open-filters");
@@ -105,7 +104,9 @@ function searchFiltersOnDocumentReady() {
             closeFilters();
         } 
         else if (isOpened && (document.documentElement.clientWidth < 600)) {
-            $(".filters-button-area").hide();
+            //$(".filters-button-area").hide();
+            $(".show-more-filters").hide();
+            $(".filters-button-area > .btn-apply").hide();
             $(".more-filters-area").show();     
         }
         else {
@@ -167,7 +168,9 @@ function searchFiltersOnDocumentReady() {
                 openFilters();
                 $(".city-block").css("display","block");
                 $(".filters-row").css("display","block");     
-                $(".filters-button-area").show();
+                //$(".filters-button-area").show();
+                $(".show-more-filters").show();
+                $(".filters-button-area > .btn-apply").show();
                 $(".more-filters-area").hide();
                 $(".btn-alert").css("display","none");
                 $(".btn-sort").css("display","none");
@@ -231,7 +234,9 @@ function searchFiltersOnDocumentReady() {
         $('#city').importTags($('#city').val());
         if(document.documentElement.clientWidth > 600) {
             closeFilters();
-            $(".filters-button-area").show();
+            //$(".filters-button-area").show();
+            $(".show-more-filters").show();
+            $(".filters-button-area > .btn-apply").hide();
         }
         else {
             closeFilters(false);
