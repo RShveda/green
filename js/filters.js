@@ -55,6 +55,7 @@ function closeFilters(scrollToTop) {
         $(".btn-alert").css("display","inline-block");
         $(".btn-sort").css("display","inline-block"); 
         $(".header-row").css("display", "block");
+        $(".header-row").removeClass("position-fixed");
     }
     if (scrollToTop !== false && $(window).scrollTop() > 30) {
         $("html, body").animate({ scrollTop: 0 }, 200);
