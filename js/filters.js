@@ -68,7 +68,12 @@ function closeFilters(scrollToTop) {
         $("section.more-properties").css('margin-top', 0);
         $("footer").css('margin-top', 0);
     }, 450);
-    $(".more-filters").slideToggle(450);
+    if (document.documentElement.clientWidth < 600) {
+        $(".more-filters").css("display", "none");
+    } 
+    else {
+        $(".more-filters").slideToggle(450);
+    }
     $(".more-filters-buttons").toggleClass("hidden");
     $("html").toggleClass("opened-filters");
 }
@@ -588,6 +593,7 @@ function searchFormAjaxSubmit() {
         beforeSearchFormAjaxSubmit();
         if (document.documentElement.clientWidth < 600) {
             $(".city-block").css("display","none");
+            //$(".more-filters").css("display","none");
             $(".filters-row").css("display","none");
         }
         console.log("hello2");
@@ -598,7 +604,9 @@ function searchFormAjaxSubmit() {
                 $("form#searchForm").submit();
             }, 400);
         } else {
-            $("form#searchForm").submit();
+            setTimeout(function() {
+                $("form#searchForm").submit();
+            }, 400);
         }
     } 
 }
