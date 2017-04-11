@@ -857,7 +857,7 @@ function searchAlertOnDocumentReady(countNewPage) {
     }
 }
 function searchSortAlertOnDocumentReady(countNewPage) {
-
+    if ($('.no-result.no-area').length == 0) {
         $(".sorting-by .btn-sort").on("click", function (e) {
             $("#createSortAlertDialog").modal('show');
         });
@@ -876,6 +876,7 @@ function searchSortAlertOnDocumentReady(countNewPage) {
         PrepareSortAlertForm();  
     
         $(".sorting-by .btn-sort").removeAttr('disabled');
+    }
 }
 
 function autocompleteOnDocumentReady() {

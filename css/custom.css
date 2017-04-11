@@ -4713,11 +4713,11 @@ code, .code {
 }
 #sortAlertContainer .modal-dialog {
     width: 80%;
-    margin: auto;
-    -webkit-transform: translate(0,150px);
+    margin: 10px auto;
+    /*-webkit-transform: translate(0,150px);
     -ms-transform: translate(0,150px);
     -o-transform: translate(0,150px);
-    transform: translate(0,150px);
+    transform: translate(0,150px);*/
     min-width: 291px;
 }
 #sortAlertContainer .modal-header {

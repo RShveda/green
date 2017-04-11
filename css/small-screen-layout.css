@@ -703,7 +703,12 @@
         flex-basis: 100%;
         -webkit-flex-basis: 100%;
     }
-}    
+}  
+@media (max-width: 599px) and (orientation:portrait) {
+    #sortAlertContainer .modal-dialog {
+        top: 150px;
+    }
+}  
 @media (max-width: 480px) {
     .items-grid {
         width: 100%;
