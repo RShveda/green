@@ -564,6 +564,7 @@ function searchContentOnDocumentReady() {
             setTimeout(1);
         });
     }
+    
     else if ($(".item-main").hasClass("rtl-version")){
         $(".swiper-slide").css("width","100%");
         $(".swiper-slide").css("transform","translate3d(100%, 0px, 0px)");
