@@ -755,6 +755,7 @@ code, .code {
     .filters {
         width: 100%;
     }
+    
 }
 @media(max-width: 900px) {
     .rtl-version .item-main:nth-child(2n+1) {
