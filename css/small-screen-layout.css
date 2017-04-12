@@ -499,7 +499,7 @@
         padding-left: 0px;
     }
     .more-filter-text span {
-        display: inline;
+        display: inline-block;
         margin-right: 15px;
     }
     .filters-button-area br {
