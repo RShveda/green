@@ -1,3 +1,11 @@
+@keyframes mymove {
+    from {right: -270px;}
+    to {right: 0px;}
+}
+@keyframes mymoveback {
+    from {right: 0px;}
+    to {right: -270px;}
+}
 .rtl-version {
     direction: rtl;
 }
@@ -9,9 +17,6 @@
     .rtl-version p.text {
         /*base for the rtl-text*/
     }
-
-header .header-row.rtl-version {
-}
 
     header .header-row.rtl-version > div {
         float: right;
@@ -319,7 +324,16 @@ header .header-row.row.rtl-version .search-input label {
     float: right;
     margin-right: -5px;
 }
-
+.city-block.rtl-version label {
+    float: right;
+}
+#city_addTag > span {
+    display: none !important;
+}
+.city-block.rtl-version .city-autocomplete-wrapper {
+    padding-right: 0;
+    padding-left: 25px;
+}
 /*@Component:
     Autocomplete dropdown list
 */
@@ -734,11 +748,18 @@ code, .code {
 .rtl-version .legal-notice {
     text-align: left;
 }
-
+@media(max-width: 990px) {
+    .city-block.rtl-version {
+        float: right;
+    }
+}
 @media(max-width: 900px) {
     .rtl-version .item-main:nth-child(2n+1) {
         margin-left: 15px;
         margin-right: 0;
+    }
+    .filters-row.rtl-version {
+        width: 100%;
     }
 }
 
@@ -798,15 +819,36 @@ section.simple-body-section.geteway-info-main-section.rtl-version h4 + .subitem-
     float: left;
 }
 
-.header-row.row.search-page .search-input .label-m-search {
+.header-row.row.search-page .search-input .btn-m-search {
     float: left;
 }
 
-.header-row.row.search-page .search-input .label-m-menu {
+.header-row.row.search-page .search-input .btn-m-menu {
+    float: right;
+}
+#panel-menu {
+    right: -320px;
+    top: 76px;
+}
+.menu-item {
+    text-align: right;
+}
+.filters-title .ga-icon-budget-arrow {
+    left: auto;
+    transform: scaleX(1);
     float: right;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 599px) {
+    html {
+        overflow-x: hidden;
+    }
+    .home.other-pages .container-fluid {
+        position: relative;
+    }
+    .rtl-version .item-main:nth-child(2n+1) {
+        margin-left: 0px;
+    }
     .item-main.rtl-version figcaption .item-location {
         float: right;
         margin-right: 10px;
@@ -828,8 +870,67 @@ section.simple-body-section.geteway-info-main-section.rtl-version h4 + .subitem-
     .more-properties.rtl-version li:first-child {
         border-right: none;
     }
+    .city-block.rtl-version {
+        margin-right: calc(50% - 150px) !important;
+    }
+    .city-block.rtl-version .filter-name {
+        text-align: right;
+    }
+    .filters-row.rtl-version .currency-listing {
+        margin: auto;
+    }
+    .filters-row.rtl-version .currency-listing .filter-name {
+        text-align: right;
+    }
+    .filters-row.rtl-version .filters-content .show-more-filters .more-filter-text {
+        float: none;
+    }
+    .filters-row.rtl-version .component-neighbourhood .component-list {
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .filters-row.rtl-version .min, .filters-row.rtl-version .max, 
+    .filters-row.rtl-version .currency-listing .component-currency, 
+    .filters-row.rtl-version .component-neighbourhood .component-list, 
+    .filters-row.rtl-version .component-checkbox-list .component-list {
+        text-align: right;
+    }
+    .filters-row.rtl-version .currency-listing .search-par {
+        width: 245px;
+        text-align: right;
+    }
+    .city-block.rtl-version div.tagsinput {
+        width: 100% !important;
+    }
+    .more-filters.rtl-version .search-par {
+        width: 245px;
+        text-align: right;
+    }
+    .more-filters.rtl-version .filters-content.more-checkbox label {
+        padding-right: 0;
+    }
+    .filters-row.more-filters.rtl-version .more-filters-buttons > div {
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .header-row.rtl-version .menu-item span.ga-icons {
+        margin-right: 15px;
+        margin-left: 30px;
+    }
+    .modal-content.rtl-version .sorting-by .options-list .ga-icons {
+        padding-left: 0;
+        padding-right: 6px;
+    }
+    #sortAlertContainer .modal-content.rtl-version .modal-header .close {
+        right: auto;   
+        left: 8px;
+    }
 }
-
+@media (max-width: 375px) {
+    #panel-menu {
+        top: 75px;
+    }
+}
 @media (max-width: 320px) {
     .more-properties.rtl-version li:nth-child(odd) {
         border-right: none;
