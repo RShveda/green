@@ -840,7 +840,7 @@ section.simple-body-section.geteway-info-main-section.rtl-version h4 + .subitem-
 }
 
 @media (max-width: 599px) {
-    html {
+    html, body {
         overflow-x: hidden;
     }
     .home.other-pages .container-fluid {
@@ -924,6 +924,9 @@ section.simple-body-section.geteway-info-main-section.rtl-version h4 + .subitem-
     #sortAlertContainer .modal-content.rtl-version .modal-header .close {
         right: auto;   
         left: 8px;
+    }
+    .filters-row.more-filters.rtl-version .more-filters-buttons button {
+        float: none;
     }
 }
 @media (max-width: 375px) {
