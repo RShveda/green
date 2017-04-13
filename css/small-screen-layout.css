@@ -160,12 +160,13 @@
         margin: 0;
     }
     header.other-pages .header-row.rtl-version .logo {
-        display: inline-block;
-        position: static;
+        /*display: inline-block;*/
+        position: static !important;
     }
     header.other-pages .header-row.rtl-version .logo a img {
         position: static !important;
         transform: none !important;
+        display: inline !important;
     }
     .other-pages .city-autocomplete-wrapper {
         background-color: transparent; 
@@ -291,7 +292,7 @@
     }
     .items-grid .item-location {
         margin-left: 10px;
-        max-width: calc(100% - 140px);
+        max-width: calc(100% - 140px) !important;
         display: inline-flex;
         color: white;
         font-size: 1.2em;
@@ -352,9 +353,9 @@
         z-index: 1;
         position: relative;
     }
-    #panel-menu {
+    /*#panel-menu {
         display: block;
-    }
+    }*/
     /* FILTER */
     .filters-hide {
         height: 0px;
