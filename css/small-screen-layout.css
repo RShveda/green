@@ -706,6 +706,12 @@
         flex-basis: 100%;
         -webkit-flex-basis: 100%;
     }
+    .more-checkbox .custom-checkbox:after, .more-checkbox .custom-checkbox:before {
+        background: #fff;
+    }
+    .more-checkbox input[type=checkbox]:checked + .custom-checkbox:after, .more-checkbox input[type=checkbox]:checked + .custom-checkbox:before {
+        background: #86aa22;
+    }
 }  
 @media (max-width: 599px) and (orientation:portrait) {
     #sortAlertContainer .modal-dialog {
