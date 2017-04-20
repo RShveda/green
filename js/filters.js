@@ -237,9 +237,12 @@ function searchFiltersOnDocumentReady() {
             $(this).closest('.more-checkbox').find(".select-placeholder").hide();
             $(this).closest('.more-checkbox').find(".search-par").append(html);
             checkboxCount++;
-            console.log(checkboxCount);
             if (checkboxCount >= checkboxCountAll) {
-                $(this).closest('.more-checkbox').find(".search-par").prepend('<span class="component-selected" title="All" style="margin-right:230px">All</span>');
+                if ($(".more-filters").hasClass("rtl-version")) {
+                    $(this).closest('.more-checkbox').find(".search-par").prepend('<span class="component-selected" title="All" style="margin-left:230px">All</span>');
+                } else {
+                    $(this).closest('.more-checkbox').find(".search-par").prepend('<span class="component-selected" title="All" style="margin-right:230px">All</span>');
+                }
               }
 
           } else {
@@ -248,7 +251,6 @@ function searchFiltersOnDocumentReady() {
             var ret = $(this).closest('.more-checkbox').find(".search-par");
             $(this).closest('.more-checkbox').find(".search-line-component").append(ret);
             checkboxCount--;
-            console.log(checkboxCount);
             if (checkboxCount <= 0) {
                 $(this).closest('.more-checkbox').find(".select-placeholder").show();          
               }
@@ -287,9 +289,9 @@ function searchFiltersOnDocumentReady() {
         if ($("body").hasClass("open-filters")) {
             window.searchFormAjaxDesactivated = true;
             restoreFilterValuesFromState(window.previousState, false);
+            $(".more-checkbox.filters-properties.row").removeClass("opened");
             $('.more-checkbox').find("span.component-selected").remove();
             checkboxCount=0;
-            console.log(checkboxCount);
             $('.more-checkbox').find(".select-placeholder").show();
             closeFilters();
             $(".header-row").removeClass("position-fixed");
