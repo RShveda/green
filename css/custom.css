@@ -4802,3 +4802,6 @@ div.tagsinput div {
     padding: 15px;
     transform: scaleX(-1);
 }
+.select-placeholder-all {
+    display: none;
+}
