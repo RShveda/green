@@ -236,6 +236,7 @@ function searchFiltersOnDocumentReady() {
             var checkboxCountAll2 = (($(this).closest('.more-checkbox').find(".checkbox-group").find('input[type="checkbox"]')).length);
           }
           title = $(this).attr("title") + ", ";          
+             $(this).closest('.more-checkbox').find(".select-placeholder-select").hide();
 
           if ($(this).is(':checked')) {
             var html = '<span class="component-selected" title="' + title + '">' + title + '</span>';
@@ -262,20 +263,24 @@ function searchFiltersOnDocumentReady() {
 
 
           } else {
+            
             $('span[title="' + title + '"]').remove();
             //$(this).closest('.more-checkbox').find(".search-par").find('span[title="All"]').remove();
             $(this).closest('.more-checkbox').find(".select-placeholder-all").hide();
-            var ret = $(this).closest('.more-checkbox').find(".search-par");
-            $(this).closest('.more-checkbox').find(".search-line-component").append(ret);
+            /*var ret = $(this).closest('.more-checkbox').find(".search-par");
+            $(this).closest('.more-checkbox').find(".search-line-component").append(ret);*/
             if ($(this).closest('.more-checkbox').find(".checkbox-group").hasClass("checkbox-dropdown-1")) {                     
                 checkboxCount1--;
+                if (checkboxCount1 <= 0) {
+                    $(this).closest('.more-checkbox').find(".select-placeholder-select").show();          
+                  }
+
             } else if ($(this).closest('.more-checkbox').find(".checkbox-group").hasClass("checkbox-dropdown-2")) {           
                 checkboxCount2--;
-            }
-
-            if ((checkboxCount1 <= 0) || (checkboxCount2 <= 0)) {
+                if (checkboxCount2 <= 0) {
                 $(this).closest('.more-checkbox').find(".select-placeholder-select").show();          
               }
+            }            
 
           } 
           return checkboxCount1, checkboxCount2;
