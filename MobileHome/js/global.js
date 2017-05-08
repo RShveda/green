@@ -142,15 +142,18 @@ function commonOnDocumentReady() {
     if (!($(".home").hasClass("other-pages"))) {
         $(".home .item-search").on("click", function () {    
             var awayFromHome = "1";
-            localStorage.setItem("awayFromHome", awayFromHome);       
-            window.location.href = "listing3.html";  
-                
+            localStorage.setItem("awayFromHome", awayFromHome); 
+            setTimeout(function () {      
+                window.location.href = "listing3.html";  
+            }, 500);    
         });
 
         $(".home .item-advanced-search").on("click", function () {
             var awayFromHome = "2";
             localStorage.setItem("awayFromHome", awayFromHome); 
-            window.location.href = "listing3.html";
+            setTimeout(function () {      
+                window.location.href = "listing3.html";  
+            }, 500);  
         });
     }
 
