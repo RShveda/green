@@ -26,6 +26,12 @@ function isLocalStorageNameSupported() {
 }
 
 function commonOnDocumentReady() {
+    localStorage.getItem("awayFromHome");
+    if (localStorage.getItem("awayFromHome") == "1") {
+        $(".other-pages .item-search").trigger("click");
+    } else if (localStorage.getItem("awayFromHome") == "2") {
+        $(".other-pages .item-advanced-search").trigger("click");
+    }
     initJsModel();
 
     var select = $(".component-list"),
@@ -157,12 +163,7 @@ function commonOnDocumentReady() {
         });
     }
 
-    localStorage.getItem("awayFromHome");
-    if (localStorage.getItem("awayFromHome") == "1") {
-        $(".other-pages .item-search").trigger("click");
-    } else if (localStorage.getItem("awayFromHome") == "2") {
-        $(".other-pages .item-advanced-search").trigger("click");
-    }
+
     /*End of HOME PAGE events on "Serch" and "Advanced Serch" menu items */
     if (document.documentElement.clientWidth < 600) {
         $(".component-selected").html('€');
