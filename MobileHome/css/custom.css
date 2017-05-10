@@ -200,7 +200,12 @@ button[class*=btn-] .ga-icons {
     bottom: 30px;
     left: 0;
 }
-
+.search-line-component.component-apartment.component-list .ga-icon-triangle-down {
+    display: none;
+}
+.copyright {
+    display: none;
+}
 
 /***********************************
     Search Row
@@ -1371,7 +1376,7 @@ header.other-pages {
     .other-pages .header-row > nav,
     .other-pages .header-row > div,
     .home .header-row > div {
-        padding-top: 20px;
+        /*padding-top: 20px;*/
         margin-bottom: 0px;
     }
 
@@ -6536,6 +6541,7 @@ header.home .logo img {
 .component-currency > .options-list, .ui-autocomplete {
     max-height: 345px;
     overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
 }
 
 .filter-property-type-text + .filter-properties-list.home-search-filter {

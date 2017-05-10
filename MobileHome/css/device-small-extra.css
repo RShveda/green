@@ -5,9 +5,13 @@
         height: 100%;
         /*overflow-y: hidden;*/
     }
+    .home .header-row > div {
+        padding-top: 20px; 
+    }
     .home .search-row {
         position: relative;
         margin-top: 30px;
+        height: calc(100% - 200px);
     }
 
     .home .text-right .btn-sell,
@@ -66,6 +70,7 @@
     }
     .radio-choice {
         width: 295px;
+        max-width: 295px;
         margin: auto;
         float: none;
     }
@@ -130,20 +135,34 @@
     }
     .component-currency > .options-list, .ui-autocomplete {
         max-height: 120px;
+
     }
+    /*::-webkit-scrollbar {
+        width: 20px;
+    }
+     
+    ::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    }
+     
+    ::-webkit-scrollbar-thumb {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+    }*/
     .filter-property-type-text + .filter-properties-list.home-search-filter {
         left: -1px;
         width: 100.6%;
     }
     .copyright {
-        position: absolute;
-        bottom: 20px;
+        display: block;
+        position: relative;
         color: #fff;
         text-align: center;
         font-size: 12px;
+        margin-bottom: 27px;
     }
     div.tagsinput input {
-        width: 260px !important;
+        padding-right: 16px;
+        min-width: 150px;
     }
     header.home {
         min-height: 568px;
@@ -154,6 +173,9 @@
         float: right;
         width: 15px;
         margin-right: 15px;
+    }
+    .search-line-component.component-apartment.component-list .ga-icon-triangle-down {
+        display: inline-block;
     }
     header.home.home-register {
         height: 500px;
@@ -961,12 +983,6 @@
     }
     .info-row .info-alert {
         margin-bottom: 10px;
-    }
-}
-@media (max-width: 600px) and (orientation:landscape) {
-    .copyright {
-        position: relative;
-        bottom: -45px;
     }
 }
 

@@ -65,8 +65,11 @@ function commonOnDocumentReady() {
             window.location.href = $(this).data('language-link');
         }
     });
-    if (!($(".home").hasClass("other-pages"))) {
+    if (!($(".home").hasClass("other-pages")) && document.documentElement.clientWidth < 600) {
         $(".home").css("height", $(window).height());
+        /*if ($(window).height() < parseInt($(".home").css("min-height"))) {
+            $(".copyright").css("position", "relative").css("bottom", "-45px");
+        }*/
     }
     
     var panelHeight;
@@ -76,7 +79,7 @@ function commonOnDocumentReady() {
 
 
     $(window).on("orientationchange", function () {
-        if (!($(".home").hasClass("other-pages"))) {
+        if (!($(".home").hasClass("other-pages")) && document.documentElement.clientWidth < 600) {
             $(".home").css("height", $(window).height());
         }
         if (panelMenu.hasClass("panel-on")) {
@@ -162,11 +165,10 @@ function commonOnDocumentReady() {
             }, 500);  
         });
     }
-
-
     /*End of HOME PAGE events on "Serch" and "Advanced Serch" menu items */
     if (document.documentElement.clientWidth < 600) {
         $(".component-selected").html('€');
+        $("#city_tag").attr("placeholder", "Lieu de recherche");
     }
 
     select.on("click", function () {
