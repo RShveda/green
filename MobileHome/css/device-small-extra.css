@@ -1052,6 +1052,17 @@
     h1.alert-title {
         min-width: calc(100% - 100px);
     }
+    .home-country-link {
+        width: 33%;
+    }
+    .home-country-link:nth-child(1),
+    .home-country-link:nth-child(4) {
+        text-align: left;
+    }
+    .home-country-link:nth-child(3),
+    .home-country-link:nth-child(6) {
+        text-align: right;
+    }
 }
 
 @media (max-width: 375px) {
