@@ -219,6 +219,10 @@
         font-size: 16px;
         padding: 10px 15px 0;
     }
+    .home:not(.other-pages) .header-row.rtl-version .text-right{
+        right: auto;
+        left: 0;
+    } 
     .header-row.rtl-version .menu-list {
         padding-right: 0;
     } 
@@ -269,7 +273,9 @@
     header .search-row.rtl-version .search-line .search-line-component {
         border-radius: 5px !important;
     }
-
+    header .search-row.rtl-version .search-line .component-budget .search-par {
+        text-align: right;
+    }
 
 
     header.home.home-register {

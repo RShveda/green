@@ -48,27 +48,51 @@
     <link href="./css/font-latin,greek,vietnamese,cyrillic.css" rel="stylesheet" type="text/css">
 </head>
 
-<body class="">
+<body class="homepage">
     <noscript>
         &lt;a href='http://www.green-acres.com/ar'&gt;عقارات &lt;/a&gt;
     </noscript>
     <header class="home ">
         <section class="container-fluid">
-            <div class="header-row row rtl-version ">
+            <div class="header-row row rtl-version">
                 <!-- Green-Acres logo with text-->
-                <div class="col-xs-12 col-sm-4">
+                <div class="col-xs-12 col-sm-4 logo-full">
                     <span class="logo">
                 <a href="http://www.green-acres.com/ar">
                     <img src="./img/logo.png" alt="logo"><span class="logo-part-large">Green-Acres</span>
                     </a>
                     </span>
                 </div>
+                <!-- Burger Menu field -->
+                <div class="col-xs-12 col-sm-4 search-input ">
+                    <div class="btn-m-menu">
+                        <div id="icon-menu">
+                              <span></span>
+                              <span></span>
+                              <span></span>
+                              <span></span>
+                        </div>
+                    </div>
+                    <!--<span class="ga-icons ga-icon-menu-button"></span></div>-->
+                    <section id="panel-menu">
+                        <ul class="menu-list">
+                            <li class="menu-item"><a href="http://www.green-acres.com"><span class="ga-icons ga-icon-home"></span>Home</a></li>
+                            <li class="menu-item"><span class="ga-icons ga-icon-planet-earth"></span>Country</li>
+                            <li class="menu-item item-search"><span class="ga-icons ga-icon-Magnifier"></span>Search</li>
+                            <li class="menu-item item-advanced-search"><span class="ga-icons ga-icons ga-icon-options-horizontal-solid"></span>Advanced search</li>
+                            <li class="menu-item"><a href="http://www.green-acres.com/en/Member/Basket"><span class="ga-icons ga-icon-user"></span>Favorites</a></li>
+                            <li class="menu-item"><span class="ga-icons ga-icon-translate"></span>Language</li>
+                            <li class="menu-item"><span class="ga-icons ga-icon-info-outline"></span>About us</li>
+                        </ul>
+                    </section>
+                    
+                </div>
                 <!-- Top right section : Espace personnel, Vendre votre maison, Langue -->
                 <nav class="col-xs-12 col-sm-8 text-right">
                     <button class="btn-personal-area icon-favourite-list" data-link="/ar/Member/Basket">
                 <span class="favourites-counter text" style="display: none;">0</span>&nbsp;
                 <span class="ga-icons ga-icon-user"></span>
-                فضاء شخصي
+                <span class="button-title">فضاء شخصي</span>
             </button>
                     <button class="btn-sell"><span class="ga-icons ga-icon-key"></span>نشر إعلاناتك</button>
                     <div class="component-list">
@@ -222,7 +246,7 @@
         <section class="search-row rtl-version ">
             <div class="container-fluid">
                 <form action="http://www.green-acres.com/ar/show_properties.htm" method="post" novalidate="novalidate">
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 radio-choice">
                         <div class="custom-radio">
                             <a href="http://www.green-acres.com/ar" class="inactiveLink">
                                 <input type="radio" name="type-of-choice" id="choice-buy" value="buy" checked="" data-action="/ar/show_properties.htm">
@@ -233,6 +257,12 @@
                             <a href="http://www.green-acres.com/ar/index-rentals">
                                 <input type="radio" name="type-of-choice" id="choice-rent" value="rent" data-action="/ar/show_rentals.htm">
                                 <span class="radio-checker"></span> موقع
+                            </a>
+                        </div>
+                        <div class="custom-radio">
+                            <a href="http://www.green-acres.fr/fr/index-programs">
+                                <input type="radio" name="type-of-choice" id="choice-program" value="program" data-action="/fr/Search/IndexPrograms">
+                                <span class="radio-checker"></span> جديد
                             </a>
                         </div>
                     </div>
@@ -308,6 +338,7 @@
                                     </li>
                                 </ul>
                             </div>
+                            <span class="ga-icons ga-icon-triangle-down"></span>
                         </div>
                         <div class="search-line-component component-budget">
                             <span class="ga-icons icon-budget">
@@ -391,6 +422,9 @@
                 </a>
             </div>
             <p></p>
+            <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 copyright">
+                Powered by Green-Acres.com © 2004-2016 (WEB3)
+            </div>
         </div>
     </aside>
     <!-- Seo section -->

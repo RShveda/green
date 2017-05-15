@@ -1,4 +1,12 @@
-﻿.rtl-version {
+﻿@keyframes mymove {
+    from {right: -270px;}
+    to {right: 0px;}
+}
+@keyframes mymoveback {
+    from {right: 0px;}
+    to {right: -270px;}
+}
+.rtl-version {
     direction: rtl;
 }
 
@@ -770,4 +778,17 @@ section.simple-body-section.geteway-info-main-section.rtl-version h4 + .subitem-
     padding-right: 20px;
     margin-left: 0;
     padding-left: 0;
+}
+.header-row.row.search-page .search-input .btn-m-search {
+    float: left;
+}
+
+.header-row.row .search-input .btn-m-menu {
+    float: right;
+}
+#panel-menu {
+    right: -320px;
+}
+.menu-item {
+    text-align: right;
 }
