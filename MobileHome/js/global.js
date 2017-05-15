@@ -154,23 +154,37 @@ function commonOnDocumentReady() {
         $(".home .item-search").on("click", function () {    
             var awayFromHome = "1";
             localStorage.setItem("awayFromHome", awayFromHome); 
-            setTimeout(function () {      
-                window.location.href = "listing3.html";  
+            setTimeout(function () {  
+                if($(".search-row").hasClass("rtl-version")) {
+                    window.location.href = "listing-rtl.html"; 
+                } else {   
+                    window.location.href = "listing3.html"; 
+                } 
             }, 500);    
         });
 
         $(".home .item-advanced-search").on("click", function () {
             var awayFromHome = "2";
             localStorage.setItem("awayFromHome", awayFromHome); 
-            setTimeout(function () {      
-                window.location.href = "listing3.html";  
+            setTimeout(function () {  
+                if($(".search-row").hasClass("rtl-version")) {
+                    window.location.href = "listing-rtl.html"; 
+                } else {   
+                    window.location.href = "listing3.html"; 
+                } 
             }, 500);  
         });
     }
     /*End of HOME PAGE events on "Serch" and "Advanced Serch" menu items */
     if (document.documentElement.clientWidth < 600) {
-        $(".component-selected").html('€');
-        $("#city_tag").attr("placeholder", "Lieu de recherche");
+        $(".component-currency").children(".component-selected").html('€');
+        if ($(".search-row").hasClass("rtl-version")) {
+            $("#city_tag").attr("placeholder", "بحث الموقع");
+        } else {
+            $("#city_tag").attr("placeholder", "Lieu de recherche");
+        }
+        
+
     }
 
     select.on("click", function () {

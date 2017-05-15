@@ -219,7 +219,56 @@
         font-size: 16px;
         padding: 10px 15px 0;
     }
-
+    .header-row.rtl-version .menu-list {
+        padding-right: 0;
+    } 
+    .header-row.rtl-version .menu-item span.ga-icons {
+        margin-right: 15px;
+        margin-left: 30px;
+    }
+    header .header-row.rtl-version .logo-full {
+        direction: ltr;
+    }
+    header .header-row.rtl-version > nav .icon-favourite-list .ga-icon-user {
+        margin-left: 0px !important;
+    }
+    .home .rtl-version .radio-choice {
+        justify-content: center;
+    }
+    .home .search-row.rtl-version .custom-radio {
+        padding-left: 10px;
+        padding-right: 17px;
+        border-left: none;
+        border-right: 2px solid rgba(255, 255, 255, 0.38);
+        margin-right: 0;
+    }
+    header .rtl-version .custom-radio:first-child,
+    header .rtl-version .custom-radio:not(:first-child)::before {
+        border-right: none !important;
+    }
+    .home .search-row.rtl-version .custom-radio a {
+        padding-right: 16px;
+        padding-left: 0px;
+    }
+    header .rtl-version .custom-radio .radio-checker {
+        right: 12px !important;
+    }
+    header .search-row.rtl-version .search-line .search-line-component {
+        padding-right: 0px !important;
+    }
+    header .search-row.rtl-version .search-line .city-autocomplete-wrapper {
+        padding-right: 0;
+        padding-left: 25px;
+    }
+    header .search-row.rtl-version .search-line div.tagsinput input {
+        padding-left: 16px;
+        padding-right: 0px;
+        margin-left: 5px;
+        margin-right: 0px;
+    }
+    header .search-row.rtl-version .search-line .search-line-component {
+        border-radius: 5px !important;
+    }
 
 
 
