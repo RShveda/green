@@ -1085,6 +1085,9 @@
     .info-row .info-alert {
         margin-bottom: 10px;
     }
+    header .header-row.rtl-version > nav .icon-favourite-list .favourites-counter {
+        right: 20px !important;
+    }
 }
 
 @media (max-width: 599px) and (orientation:portrait) {
