@@ -72,17 +72,29 @@ function commonOnDocumentReady() {
     var mainAsideTop;
 
 
-    if (!($(".home").hasClass("other-pages")) && document.documentElement.clientWidth < 600) {
+    if (!($(".home").hasClass("other-pages")) && document.documentElement.clientWidth < 601) {
         $(".home").css("height", $(window).height());
         mainAsideTop = parseInt($(".home").css("height")) - parseInt($(".main-aside").css("height"));
         $(".main-aside").css("top", mainAsideTop);
+        $(".component-currency").children(".component-selected").html('€');
+        if ($(".search-row").hasClass("rtl-version")) {
+            $("#city_tag").attr("placeholder", "بحث الموقع");
+        } else {
+            $("#city_tag").attr("placeholder", "Lieu de recherche");
+        }
     }
     
     $(window).on("orientationchange", function () {
-        if (!($(".home").hasClass("other-pages")) && document.documentElement.clientWidth < 600) {
+        if (!($(".home").hasClass("other-pages")) && document.documentElement.clientWidth < 601) {
             $(".home").css("height", $(window).height());
             mainAsideTop = parseInt($(".home").css("height")) - parseInt($(".main-aside").css("height"));
             $(".main-aside").css("top", mainAsideTop);
+            $(".component-currency").children(".component-selected").html('€');
+            if ($(".search-row").hasClass("rtl-version")) {
+                $("#city_tag").attr("placeholder", "بحث الموقع");
+            } else {
+                $("#city_tag").attr("placeholder", "Lieu de recherche");
+            }
         }
         if (panelMenu.hasClass("panel-on")) {
             screenHeight = $(window).height();//window.screen.height;
@@ -176,16 +188,6 @@ function commonOnDocumentReady() {
         });
     }
     /*End of HOME PAGE events on "Serch" and "Advanced Serch" menu items */
-    if (document.documentElement.clientWidth < 600) {
-        $(".component-currency").children(".component-selected").html('€');
-        if ($(".search-row").hasClass("rtl-version")) {
-            $("#city_tag").attr("placeholder", "بحث الموقع");
-        } else {
-            $("#city_tag").attr("placeholder", "Lieu de recherche");
-        }
-        
-
-    }
 
     select.on("click", function () {
         var closeList = $(this).find(options_area).hasClass("show-list");
