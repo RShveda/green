@@ -86,9 +86,12 @@ function commonOnDocumentReady() {
     
     $(window).on("orientationchange", function () {
         if (!($(".home").hasClass("other-pages")) && (document.documentElement.clientWidth < 604)) {
-            $(".home").css("height", $(window).height());
-            mainAsideTop = parseInt($(".home").css("height")) - parseInt($(".main-aside").css("height"));
-            $(".main-aside").css("top", mainAsideTop);
+            setTimeout(function () {
+                $(".home").css("height", $(window).height());
+                mainAsideTop = parseInt($(".home").css("height")) - parseInt($(".main-aside").css("height"));
+                $(".main-aside").css("top", mainAsideTop);
+            }, 500);
+            
             $(".component-currency").children(".component-selected").html('€');
             if ($(".search-row").hasClass("rtl-version")) {
                 $("#city_tag").attr("placeholder", "بحث الموقع");
