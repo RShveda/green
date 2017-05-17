@@ -72,7 +72,7 @@ function commonOnDocumentReady() {
     var mainAsideTop;
 
 
-    if (!($(".home").hasClass("other-pages")) && document.documentElement.clientWidth < 604) {
+    if (!($(".home").hasClass("other-pages")) && (document.documentElement.clientWidth < 604)) {
         $(".home").css("height", $(window).height());
         mainAsideTop = parseInt($(".home").css("height")) - parseInt($(".main-aside").css("height"));
         $(".main-aside").css("top", mainAsideTop);
@@ -85,7 +85,7 @@ function commonOnDocumentReady() {
     }
     
     $(window).on("orientationchange", function () {
-        if (!($(".home").hasClass("other-pages")) && document.documentElement.clientWidth < 604) {
+        if (!($(".home").hasClass("other-pages")) && (document.documentElement.clientWidth < 604)) {
             $(".home").css("height", $(window).height());
             mainAsideTop = parseInt($(".home").css("height")) - parseInt($(".main-aside").css("height"));
             $(".main-aside").css("top", mainAsideTop);
