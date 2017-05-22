@@ -98,7 +98,7 @@ function commonOnDocumentReady() {
                 mainAsideTop = parseInt($(".home").css("height")) - parseInt($(".main-aside").css("height"));
                 $(".main-aside").css("top", mainAsideTop);
 
-            }, 500);
+            }, 200);
             
             $(".component-currency").children(".component-selected").html('€');
             if ($(".search-row").hasClass("rtl-version")) {
@@ -204,13 +204,17 @@ function commonOnDocumentReady() {
     var filter_hover_list;
     var search_line_height;
 
-    select.on("click", function () {
+    select.on("click", function (e) {
         var filter_hover = $(this);
         var closeList = filter_hover.find(options_area).hasClass("show-list");
+        if (options_area.has(e.target).length && !select.has(e.target).length) {
+            e.stopPropagation();
+            //return false;
+        }
         filter_hover.find(".show-list").removeClass("show-list");
-        //console.log("select.on");
-        if (!($(".home").hasClass("other-pages")) && (document.documentElement.clientWidth < 604)) {
-        //setTimeout(function() {
+        console.log("select.on close");
+        if ((!($(".home").hasClass("other-pages"))) && (document.documentElement.clientWidth < 604) && (filter_hover.hasClass("component-apartment") || filter_hover.hasClass("component-currency"))) {
+        setTimeout(function() {
                 filter_hover_height = parseInt(filter_hover.css("height"));
                 //console.log("qq");
                 //console.log(filter_hover_height + " filter_hover_height");
@@ -220,24 +224,26 @@ function commonOnDocumentReady() {
                 if (search_line_height < $(".search-line").css("min-height")) {
                     search_line_height = $(".search-line").css("min-height");
                 }
+                //console.log(search_line_height + " search_line_height closed");
                 $(".search-line").css("height", search_line_height);
 
-                //$(".home").css("height", $(window).height());
-                homeHeight = parseInt($(".home").css("height")) - filter_hover_height;
+                $(".home").css("height", $(window).height());
+                homeHeight = parseInt($(".home").css("height")) //;- filter_hover_height;
+                //console.log(homeHeight + " homeHeight closed");
                 $(".home").css("height", homeHeight);
-                mainAsideTop = parseInt($(".home").css("height")) - parseInt($(".main-aside").css("height"));
+                mainAsideTop = homeHeight/*parseInt($(".home").css("height"))*/ - parseInt($(".main-aside").css("height"));
                 $(".main-aside").css("top", mainAsideTop);
                 $("html, body").scrollTop(0);
                 //console.log(filter_hover.css("height"));
-         //   }, 0);
+            }, 0);
         //console.log("qqq");
         }
         if (closeList == false) {
 
             filter_hover.find(options_area).addClass("show-list");
-            //console.log("select.on open");
-            if (!($(".home").hasClass("other-pages")) && (document.documentElement.clientWidth < 604)) {
-            //setTimeout(function() {
+            console.log("select.on open");
+            if ((!($(".home").hasClass("other-pages"))) && (document.documentElement.clientWidth < 604) && (filter_hover.hasClass("component-apartment") || filter_hover.hasClass("component-currency"))) {
+            setTimeout(function() {
                 filter_hover_height += parseInt(filter_hover.find(options_area).css("height"));
                 //console.log(filter_hover_height + " c");
                 filter_hover.css("height", filter_hover_height);
@@ -246,12 +252,15 @@ function commonOnDocumentReady() {
                 
                 //$(".home").css("height", $(window).height());
                 homeHeight = parseInt($(".home").css("height")) + filter_hover_height;
+                //console.log($(".home").css("height") + " homeHeight open 1");
+                //console.log(filter_hover_height + " filter_hover_height open");
+                //console.log(homeHeight + " homeHeight");
                 $(".home").css("height", homeHeight);
-                mainAsideTop = parseInt($(".home").css("height")) - parseInt($(".main-aside").css("height"));
+                mainAsideTop = homeHeight/*parseInt($(".home").css("height"))*/ - parseInt($(".main-aside").css("height"));
                 $(".main-aside").css("top", mainAsideTop);
                 $("html, body").scrollTop(filter_hover.offset().top - 10);
-                //console.log(filter_hover.css("height"));
-            //}, 0); 
+                console.log(filter_hover.offset().top - 10);
+            }, 0); 
             }
         } 
 
@@ -394,7 +403,7 @@ function commonOnDocumentReady() {
     });
 
     /*************************/
-    filter_hover.on("mouseover touchend", function () {
+    /*filter_hover.on("mouseover touchend", function () {
         if (document.documentElement.clientWidth > 604) {
             $(this).find(".filter-properties-list").show();
         }
@@ -405,7 +414,7 @@ function commonOnDocumentReady() {
             $(this).find(".filter-properties-list").hide();
         }
     });
-
+    */
 
     $(window).on("click touchend", function (e) {
         if ($(e.target).closest(filter_hover).length) {
@@ -419,7 +428,7 @@ function commonOnDocumentReady() {
                     }, 100);
                 } else {
                     filter_hover.find(".filter-properties-list").hide();
-                    //console.log("window.on2");
+                    console.log("window.on2");
 
                 }
             }
