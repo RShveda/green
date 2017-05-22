@@ -70,10 +70,12 @@ function commonOnDocumentReady() {
     var menuListHeight;
     var panelMenu = $("#panel-menu");
     var mainAsideTop;
+    var homeHeight;
 
 
     if (!($(".home").hasClass("other-pages")) && (document.documentElement.clientWidth < 604)) {
         $(".home").css("height", $(window).height());
+        $(".options-list").css("max-height", $(window).height() - 60);
         mainAsideTop = parseInt($(".home").css("height")) - parseInt($(".main-aside").css("height"));
         $(".main-aside").css("top", mainAsideTop);
         $(".component-currency").children(".component-selected").html('€');
@@ -86,10 +88,16 @@ function commonOnDocumentReady() {
     
     $(window).on("orientationchange", function () {
         if (!($(".home").hasClass("other-pages")) && (document.documentElement.clientWidth < 604)) {
+                $(".search-line").find(".show-list").removeClass("show-list");
+                select.css("height", select.css("min-height"));
+                $(".search-line").css("height", $(".search-line").css("min-height"));
             setTimeout(function () {
+
                 $(".home").css("height", $(window).height());
+                $(".options-list").css("max-height", $(window).height() - 60);
                 mainAsideTop = parseInt($(".home").css("height")) - parseInt($(".main-aside").css("height"));
                 $(".main-aside").css("top", mainAsideTop);
+
             }, 500);
             
             $(".component-currency").children(".component-selected").html('€');
@@ -191,12 +199,62 @@ function commonOnDocumentReady() {
         });
     }
     /*End of HOME PAGE events on "Serch" and "Advanced Serch" menu items */
+    
+    var filter_hover_height;
+    var filter_hover_list;
+    var search_line_height;
 
     select.on("click", function () {
-        var closeList = $(this).find(options_area).hasClass("show-list");
-        select.parent().find(".show-list").removeClass("show-list");
-        if (closeList == false)
-            $(this).find(options_area).addClass("show-list");
+        var filter_hover = $(this);
+        var closeList = filter_hover.find(options_area).hasClass("show-list");
+        filter_hover.find(".show-list").removeClass("show-list");
+        //console.log("select.on");
+        if (!($(".home").hasClass("other-pages")) && (document.documentElement.clientWidth < 604)) {
+        //setTimeout(function() {
+                filter_hover_height = parseInt(filter_hover.css("height"));
+                //console.log("qq");
+                //console.log(filter_hover_height + " filter_hover_height");
+                filter_hover.css("height", filter_hover.css("min-height"));
+                //console.log(filter_hover_height);
+                search_line_height = parseInt($(".search-line").css("height")) - filter_hover_height;          
+                if (search_line_height < $(".search-line").css("min-height")) {
+                    search_line_height = $(".search-line").css("min-height");
+                }
+                $(".search-line").css("height", search_line_height);
+
+                //$(".home").css("height", $(window).height());
+                homeHeight = parseInt($(".home").css("height")) - filter_hover_height;
+                $(".home").css("height", homeHeight);
+                mainAsideTop = parseInt($(".home").css("height")) - parseInt($(".main-aside").css("height"));
+                $(".main-aside").css("top", mainAsideTop);
+                $("html, body").scrollTop(0);
+                //console.log(filter_hover.css("height"));
+         //   }, 0);
+        //console.log("qqq");
+        }
+        if (closeList == false) {
+
+            filter_hover.find(options_area).addClass("show-list");
+            //console.log("select.on open");
+            if (!($(".home").hasClass("other-pages")) && (document.documentElement.clientWidth < 604)) {
+            //setTimeout(function() {
+                filter_hover_height += parseInt(filter_hover.find(options_area).css("height"));
+                //console.log(filter_hover_height + " c");
+                filter_hover.css("height", filter_hover_height);
+                search_line_height = parseInt($(".search-line").css("height")) + filter_hover_height;          
+                $(".search-line").css("height", search_line_height);
+                
+                //$(".home").css("height", $(window).height());
+                homeHeight = parseInt($(".home").css("height")) + filter_hover_height;
+                $(".home").css("height", homeHeight);
+                mainAsideTop = parseInt($(".home").css("height")) - parseInt($(".main-aside").css("height"));
+                $(".main-aside").css("top", mainAsideTop);
+                $("html, body").scrollTop(filter_hover.offset().top - 10);
+                //console.log(filter_hover.css("height"));
+            //}, 0); 
+            }
+        } 
+
     });
 
     option.on("click", function () {
@@ -211,7 +269,10 @@ function commonOnDocumentReady() {
                 $(this).parent().parent().find(".component-selected-hidden").val($(this).attr('value')).trigger('change');
             }
         }
-        $(this).parent().find(".show-list").removeClass("show-list");
+        if (!options_area.hasClass("filter-properties-list")) {
+            $(this).parent().find(".show-list").removeClass("show-list");
+            //console.log("option.on");
+        }
         if ($(this).is('[data-currency-icon]')) {
             $('span.budget-currency').html($(this).data('currency-icon'));
         }
@@ -251,7 +312,10 @@ function commonOnDocumentReady() {
         if ($(e.target).closest(options_area).length || $(e.target).closest(option).length || $(e.target).closest(select).length) {
             e.stopPropagation();
         } else {
-            options_area.removeClass("show-list");
+            if (!options_area.hasClass("filter-properties-list")) {
+                options_area.removeClass("show-list");
+                //console.log("window.on");
+            }
         }
 
         /*************************** Touch on Add To Favourites *********************************/
@@ -330,14 +394,18 @@ function commonOnDocumentReady() {
     });
 
     /*************************/
-
     filter_hover.on("mouseover touchend", function () {
-        $(this).find(".filter-properties-list").show();
+        if (document.documentElement.clientWidth > 604) {
+            $(this).find(".filter-properties-list").show();
+        }
     });
 
     filter_hover.on("mouseleave", function () {
-        $(this).find(".filter-properties-list").hide();
+        if (document.documentElement.clientWidth > 604) {
+            $(this).find(".filter-properties-list").hide();
+        }
     });
+
 
     $(window).on("click touchend", function (e) {
         if ($(e.target).closest(filter_hover).length) {
@@ -351,6 +419,8 @@ function commonOnDocumentReady() {
                     }, 100);
                 } else {
                     filter_hover.find(".filter-properties-list").hide();
+                    //console.log("window.on2");
+
                 }
             }
         }
@@ -361,13 +431,13 @@ function commonOnDocumentReady() {
     filter_prop_btn.on("click", function () {
         window.doNotHidePropertiesList = true;
         var parent_val = $(this).parent().parent().parent().parent().parent();
-        console.log(parent_val);
+        //console.log(parent_val);
         var counter = parseInt(parent_val.find(filter_type_text).attr("data-counter"));
         if ($(this).is(":checked")) {
             /*** Counter ***/
             counter++;
             parent_val.find(filter_type_text).attr("data-counter", counter);
-            console.log(counter);
+            //console.log(counter);
             /*** Counter ***/
             if (counter > 1) {
                 parent_val.find(filter_type_text).val(parent_val.find(filter_type_text).val() + ", " + $(this).parent().find(filter_prop_text).text());
@@ -378,7 +448,7 @@ function commonOnDocumentReady() {
             /*** Counter ***/
             counter--;
             parent_val.find(filter_type_text).attr("data-counter", counter);
-            console.log(counter);
+            //console.log(counter);
             /*** Counter ***/
             var str = parent_val.find(filter_type_text).val();
             str = str.replace(", " + $(this).parent().find(filter_prop_text).text(), "");

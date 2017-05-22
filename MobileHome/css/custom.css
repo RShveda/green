@@ -1,4 +1,4 @@
-﻿@font-face {
+﻿show-list@font-face {
     font-family: 'Banjoman';
     src: url('../fonts/banjomanbd.eot');
     src: url('../fonts/banjomanbd.eot?#iefix') format('embedded-opentype'), url('../fonts/banjomanbd.woff') format('woff'), url('../fonts/banjomanbd.ttf') format('truetype'), url('../fonts/banjomanbd.svg#BanjomanBold') format('svg');
@@ -56,6 +56,7 @@ body {
 header.home {
     height: 670px;
     background: url(../img/home-background.jpg) center / cover no-repeat;
+    position: relative;
 }
 
 .logo {
@@ -338,6 +339,7 @@ button[class*=btn-] .ga-icons {
     margin: 0;
     background: #fcfcfc;
     height: 40px;
+    min-height: 40px;
     float: left;
 }
 
@@ -473,10 +475,6 @@ button[class*=btn-] .ga-icons {
     display: none;
     overflow: hidden;
     z-index: 5;
-}
-
-.show-list {
-    display: block;
 }
 
 .option {
@@ -8235,6 +8233,7 @@ div.tagsinput {
 
 .home .search-row .search-line-component {
     height: 40px;
+    min-height: 40px;
 }
 
 .city-autocomplete-wrapper {
@@ -9475,6 +9474,10 @@ section.country {
 
 .home .search-input {
     display: none;
+}
+
+.show-list {
+    display: block;
 }
 
 @media(min-width: 900px) {

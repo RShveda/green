@@ -108,7 +108,7 @@
     }
     .home .search-line {
         margin-top: 30px;
-        height: 205px;
+        min-height: 205px;
         margin-bottom: 20px;
     }
     .home .search-line .search-line-component {
@@ -144,7 +144,7 @@
         padding-top: 2px;
     }
     .component-currency > .options-list, .ui-autocomplete {
-        max-height: 120px;
+        /*max-height: 120px;*/
 
     }
     /*::-webkit-scrollbar {
