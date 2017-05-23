@@ -298,6 +298,7 @@ button[class*=btn-] .ga-icons {
     color: #5b5e5e;
     display: flex;
     display: -webkit-flex;
+    min-height: 40px;
 }
 
 .search-line-component {

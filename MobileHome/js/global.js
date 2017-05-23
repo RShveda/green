@@ -87,25 +87,26 @@ function commonOnDocumentReady() {
     }
     
     $(window).on("orientationchange", function () {
-       // if (!($(".home").hasClass("other-pages")) && (document.documentElement.clientWidth < 604)) {
+        //if (!($(".home").hasClass("other-pages")) && (document.documentElement.clientWidth < 604)) {
+            setTimeout(function () {
                 $(".search-line").find(".show-list").removeClass("show-list");
                 select.css("height", select.css("min-height"));
                 $(".search-line").css("height", $(".search-line").css("min-height"));
-            setTimeout(function () {
+            
                 $(".home").css("height", $(window).height());
                 $(".options-list").css("max-height", $(window).height() - 60);
                 mainAsideTop = parseInt($(".home").css("height")) - parseInt($(".main-aside").css("height"));
                 $(".main-aside").css("top", mainAsideTop);
 
-            }, 200);
-            
+            }, 400);
+        if (!($(".home").hasClass("other-pages")) && (document.documentElement.clientWidth < 604)) {
             $(".component-currency").children(".component-selected").html('€');
             if ($(".search-row").hasClass("rtl-version")) {
                 $("#city_tag").attr("placeholder", "بحث الموقع");
             } else {
                 $("#city_tag").attr("placeholder", "Lieu de recherche");
             }
-        //}
+        }
         if (panelMenu.hasClass("panel-on")) {
             screenHeight = $(window).height();//window.screen.height;
             if (document.documentElement.clientWidth > 600) {
