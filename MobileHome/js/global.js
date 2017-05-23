@@ -220,22 +220,26 @@ function commonOnDocumentReady() {
                 //console.log(filter_hover_height + " filter_hover_height");
                 filter_hover.css("height", filter_hover.css("min-height"));
                 //console.log(filter_hover_height);
-                search_line_height = parseInt($(".search-line").css("height")) - filter_hover_height;          
-                if (search_line_height < $(".search-line").css("min-height")) {
-                    search_line_height = $(".search-line").css("min-height");
-                }
-                //console.log(search_line_height + " search_line_height closed");
-                $(".search-line").css("height", search_line_height);
-
-                $(".home").css("height", $(window).height());
-                homeHeight = parseInt($(".home").css("height")) //;- filter_hover_height;
-                //console.log(homeHeight + " homeHeight closed");
+                if (filter_hover_height != parseInt(filter_hover.css("min-height"))) {
+                    search_line_height = parseInt($(".search-line").css("height")) - filter_hover_height;          
+                    if (search_line_height < $(".search-line").css("min-height")) {
+                        search_line_height = $(".search-line").css("min-height");
+                    }
+                    //console.log(search_line_height + " search_line_height closed");
+                    $(".search-line").css("height", search_line_height);
+                    homeHeight = parseInt($(".home").css("height")) - filter_hover_height;
+                    
+                } /*else {
+                    $(".home").css("height", $(window).height());
+                    homeHeight = parseInt($(".home").css("height"));
+                }*/
                 $(".home").css("height", homeHeight);
+                //console.log(homeHeight + " homeHeight closed");                
                 mainAsideTop = homeHeight/*parseInt($(".home").css("height"))*/ - parseInt($(".main-aside").css("height"));
                 $(".main-aside").css("top", mainAsideTop);
                 $("html, body").scrollTop(0);
                 //console.log(filter_hover.css("height"));
-            }, 0);
+            }, 100);
         //console.log("qqq");
         }
         if (closeList == false) {
@@ -260,7 +264,7 @@ function commonOnDocumentReady() {
                 $(".main-aside").css("top", mainAsideTop);
                 $("html, body").scrollTop(filter_hover.offset().top - 10);
                 console.log(filter_hover.offset().top - 10);
-            }, 0); 
+            }, 100); 
             }
         } 
 
