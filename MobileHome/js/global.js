@@ -75,7 +75,7 @@ function commonOnDocumentReady() {
 
     if (!($(".home").hasClass("other-pages")) && (document.documentElement.clientWidth < 604)) {
         $(".home").css("height", $(window).height());
-        $(".options-list").css("max-height", $(window).height() - 60);
+        $(".options-list").css("max-height", $(window).height() - 60).css("overflow-y", "scroll");
         mainAsideTop = parseInt($(".home").css("height")) - parseInt($(".main-aside").css("height"));
         $(".main-aside").css("top", mainAsideTop);
         $(".component-currency").children(".component-selected").html('€');
@@ -87,12 +87,11 @@ function commonOnDocumentReady() {
     }
     
     $(window).on("orientationchange", function () {
-        if (!($(".home").hasClass("other-pages")) && (document.documentElement.clientWidth < 604)) {
+       // if (!($(".home").hasClass("other-pages")) && (document.documentElement.clientWidth < 604)) {
                 $(".search-line").find(".show-list").removeClass("show-list");
                 select.css("height", select.css("min-height"));
                 $(".search-line").css("height", $(".search-line").css("min-height"));
             setTimeout(function () {
-
                 $(".home").css("height", $(window).height());
                 $(".options-list").css("max-height", $(window).height() - 60);
                 mainAsideTop = parseInt($(".home").css("height")) - parseInt($(".main-aside").css("height"));
@@ -106,7 +105,7 @@ function commonOnDocumentReady() {
             } else {
                 $("#city_tag").attr("placeholder", "Lieu de recherche");
             }
-        }
+        //}
         if (panelMenu.hasClass("panel-on")) {
             screenHeight = $(window).height();//window.screen.height;
             if (document.documentElement.clientWidth > 600) {
