@@ -94,6 +94,7 @@ function commonOnDocumentReady() {
                 $(".search-line").css("height", $(".search-line").css("min-height"));
             
                 $(".home").css("height", $(window).height());
+                console.log($(".home").css("height") + " window height");
                 $(".options-list").css("max-height", $(window).height() - 60);
                 mainAsideTop = parseInt($(".home").css("height")) - parseInt($(".main-aside").css("height"));
                 $(".main-aside").css("top", mainAsideTop);
@@ -220,7 +221,7 @@ function commonOnDocumentReady() {
                 //console.log(filter_hover_height + " filter_hover_height");
                 filter_hover.css("height", filter_hover.css("min-height"));
                 //console.log(filter_hover_height);
-                if (filter_hover_height != parseInt(filter_hover.css("min-height"))) {
+                if (filter_hover_height > parseInt(filter_hover.css("min-height"))) {
                     search_line_height = parseInt($(".search-line").css("height")) - filter_hover_height;          
                     if (search_line_height < $(".search-line").css("min-height")) {
                         search_line_height = $(".search-line").css("min-height");
@@ -228,11 +229,14 @@ function commonOnDocumentReady() {
                     //console.log(search_line_height + " search_line_height closed");
                     $(".search-line").css("height", search_line_height);
                     homeHeight = parseInt($(".home").css("height")) - filter_hover_height;
-                    
-                } /*else {
-                    $(".home").css("height", $(window).height());
-                    homeHeight = parseInt($(".home").css("height"));
-                }*/
+                    if (homeHeight < $(window).height()) {
+                        homeHeight = $(window).height();
+                    }
+                    console.log(homeHeight + " homeHeight qqq");
+                } else {
+                    homeHeight = $(window).height();
+                }
+                console.log(homeHeight + " homeHeight qqq?");
                 $(".home").css("height", homeHeight);
                 //console.log(homeHeight + " homeHeight closed");                
                 mainAsideTop = homeHeight/*parseInt($(".home").css("height"))*/ - parseInt($(".main-aside").css("height"));
@@ -255,10 +259,12 @@ function commonOnDocumentReady() {
                 $(".search-line").css("height", search_line_height);
                 
                 //$(".home").css("height", $(window).height());
+                console.log($(".home").css("height") + " homeHeight css before");
+                console.log(filter_hover_height + " filter_hover_height");
                 homeHeight = parseInt($(".home").css("height")) + filter_hover_height;
                 //console.log($(".home").css("height") + " homeHeight open 1");
                 //console.log(filter_hover_height + " filter_hover_height open");
-                //console.log(homeHeight + " homeHeight");
+                console.log(homeHeight + " homeHeight after");
                 $(".home").css("height", homeHeight);
                 mainAsideTop = homeHeight/*parseInt($(".home").css("height"))*/ - parseInt($(".main-aside").css("height"));
                 $(".main-aside").css("top", mainAsideTop);

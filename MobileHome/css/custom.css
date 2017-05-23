@@ -54,7 +54,7 @@ body {
 }
 
 header.home {
-    height: 670px;
+    min-height: 670px;
     background: url(../img/home-background.jpg) center / cover no-repeat;
     position: relative;
 }
