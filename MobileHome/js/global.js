@@ -234,7 +234,8 @@ function commonOnDocumentReady() {
                     }
                     console.log(homeHeight + " homeHeight qqq");
                 } else {
-                    homeHeight = $(window).height();
+                    console.log(homeHeight + " homeHeight qqq???");
+                    homeHeight = parseInt($(".home").css("height"));//$(window).height();
                 }
                 console.log(homeHeight + " homeHeight qqq?");
                 $(".home").css("height", homeHeight);
@@ -251,26 +252,26 @@ function commonOnDocumentReady() {
             filter_hover.find(options_area).addClass("show-list");
             console.log("select.on open");
             if ((!($(".home").hasClass("other-pages"))) && (document.documentElement.clientWidth < 604) && (filter_hover.hasClass("component-apartment") || filter_hover.hasClass("component-currency"))) {
-            setTimeout(function() {
-                filter_hover_height += parseInt(filter_hover.find(options_area).css("height"));
-                //console.log(filter_hover_height + " c");
-                filter_hover.css("height", filter_hover_height);
-                search_line_height = parseInt($(".search-line").css("height")) + filter_hover_height;          
-                $(".search-line").css("height", search_line_height);
-                
-                //$(".home").css("height", $(window).height());
-                console.log($(".home").css("height") + " homeHeight css before");
-                console.log(filter_hover_height + " filter_hover_height");
-                homeHeight = parseInt($(".home").css("height")) + filter_hover_height;
-                //console.log($(".home").css("height") + " homeHeight open 1");
-                //console.log(filter_hover_height + " filter_hover_height open");
-                console.log(homeHeight + " homeHeight after");
-                $(".home").css("height", homeHeight);
-                mainAsideTop = homeHeight/*parseInt($(".home").css("height"))*/ - parseInt($(".main-aside").css("height"));
-                $(".main-aside").css("top", mainAsideTop);
-                $("html, body").scrollTop(filter_hover.offset().top - 10);
-                console.log(filter_hover.offset().top - 10);
-            }, 100); 
+                setTimeout(function() {
+                    filter_hover_height += parseInt(filter_hover.find(options_area).css("height"));
+                    //console.log(filter_hover_height + " c");
+                    filter_hover.css("height", filter_hover_height);
+                    search_line_height = parseInt($(".search-line").css("height")) + filter_hover_height;          
+                    $(".search-line").css("height", search_line_height);
+                    
+                    //$(".home").css("height", $(window).height());
+                    console.log($(".home").css("height") + " homeHeight css before");
+                    console.log(filter_hover_height + " filter_hover_height");
+                    homeHeight = parseInt($(".home").css("height")) + filter_hover_height;
+                    //console.log($(".home").css("height") + " homeHeight open 1");
+                    //console.log(filter_hover_height + " filter_hover_height open");
+                    console.log(homeHeight + " homeHeight after");
+                    $(".home").css("height", homeHeight);
+                    mainAsideTop = homeHeight/*parseInt($(".home").css("height"))*/ - parseInt($(".main-aside").css("height"));
+                    $(".main-aside").css("top", mainAsideTop);
+                    $("html, body").scrollTop(filter_hover.offset().top - 10);
+                    console.log(filter_hover.offset().top - 10);
+                }, 100); 
             }
         } 
 
