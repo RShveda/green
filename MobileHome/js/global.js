@@ -241,7 +241,7 @@ function commonOnDocumentReady() {
                     //console.log(homeHeight + " homeHeight closed");                
                     mainAsideTop = homeHeight/*parseInt($(".home").css("height"))*/ - parseInt($(".main-aside").css("height"));
                     $(".main-aside").css("top", mainAsideTop);
-                    $("html, body").scrollTop(0);
+                    //$("html, body").scrollTop(0);
                     //console.log(filter_hover.css("height"));
                 }, 100);
             //console.log("qqq");
