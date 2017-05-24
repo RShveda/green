@@ -208,72 +208,72 @@ function commonOnDocumentReady() {
     select.on("click", function (e) {
         var filter_hover = $(this);
         var closeList = filter_hover.find(options_area).hasClass("show-list");
-        if (options_area.has(e.target).length && !select.has(e.target).length) {
-            e.stopPropagation();
-            //return false;
-        }
-        filter_hover.find(".show-list").removeClass("show-list");
-        console.log("select.on close");
-        if ((!($(".home").hasClass("other-pages"))) && (document.documentElement.clientWidth < 604) && (filter_hover.hasClass("component-apartment") || filter_hover.hasClass("component-currency"))) {
-        setTimeout(function() {
-                filter_hover_height = parseInt(filter_hover.css("height"));
-                //console.log("qq");
-                //console.log(filter_hover_height + " filter_hover_height");
-                filter_hover.css("height", filter_hover.css("min-height"));
-                //console.log(filter_hover_height);
-                if (filter_hover_height > parseInt(filter_hover.css("min-height"))) {
-                    search_line_height = parseInt($(".search-line").css("height")) - filter_hover_height;          
-                    if (search_line_height < $(".search-line").css("min-height")) {
-                        search_line_height = $(".search-line").css("min-height");
-                    }
-                    //console.log(search_line_height + " search_line_height closed");
-                    $(".search-line").css("height", search_line_height);
-                    homeHeight = parseInt($(".home").css("height")) - filter_hover_height;
-                    if (homeHeight < $(window).height()) {
-                        homeHeight = $(window).height();
-                    }
-                    console.log(homeHeight + " homeHeight qqq");
-                } else {
-                    console.log(homeHeight + " homeHeight qqq???");
-                    homeHeight = parseInt($(".home").css("height"));//$(window).height();
-                }
-                console.log(homeHeight + " homeHeight qqq?");
-                $(".home").css("height", homeHeight);
-                //console.log(homeHeight + " homeHeight closed");                
-                mainAsideTop = homeHeight/*parseInt($(".home").css("height"))*/ - parseInt($(".main-aside").css("height"));
-                $(".main-aside").css("top", mainAsideTop);
-                $("html, body").scrollTop(0);
-                //console.log(filter_hover.css("height"));
-            }, 100);
-        //console.log("qqq");
-        }
-        if (closeList == false) {
-
-            filter_hover.find(options_area).addClass("show-list");
-            console.log("select.on open");
+        if (!options_area.has(e.target).length || filter_hover.hasClass("component-currency")) {
+            //e.stopPropagation();
+            //option.trigger("click");
+            filter_hover.find(".show-list").removeClass("show-list");
+            console.log("select.on close");
             if ((!($(".home").hasClass("other-pages"))) && (document.documentElement.clientWidth < 604) && (filter_hover.hasClass("component-apartment") || filter_hover.hasClass("component-currency"))) {
-                setTimeout(function() {
-                    filter_hover_height += parseInt(filter_hover.find(options_area).css("height"));
-                    //console.log(filter_hover_height + " c");
-                    filter_hover.css("height", filter_hover_height);
-                    search_line_height = parseInt($(".search-line").css("height")) + filter_hover_height;          
-                    $(".search-line").css("height", search_line_height);
-                    
-                    //$(".home").css("height", $(window).height());
-                    console.log($(".home").css("height") + " homeHeight css before");
-                    console.log(filter_hover_height + " filter_hover_height");
-                    homeHeight = parseInt($(".home").css("height")) + filter_hover_height;
-                    //console.log($(".home").css("height") + " homeHeight open 1");
-                    //console.log(filter_hover_height + " filter_hover_height open");
-                    console.log(homeHeight + " homeHeight after");
+            setTimeout(function() {
+                    filter_hover_height = parseInt(filter_hover.css("height"));
+                    //console.log("qq");
+                    //console.log(filter_hover_height + " filter_hover_height");
+                    filter_hover.css("height", filter_hover.css("min-height"));
+                    //console.log(filter_hover_height);
+                    if (filter_hover_height > parseInt(filter_hover.css("min-height"))) {
+                        search_line_height = parseInt($(".search-line").css("height")) - filter_hover_height;          
+                        if (search_line_height < $(".search-line").css("min-height")) {
+                            search_line_height = $(".search-line").css("min-height");
+                        }
+                        //console.log(search_line_height + " search_line_height closed");
+                        $(".search-line").css("height", search_line_height);
+                        homeHeight = parseInt($(".home").css("height")) - filter_hover_height;
+                        if (homeHeight < $(window).height()) {
+                            homeHeight = $(window).height();
+                        }
+                        console.log(homeHeight + " homeHeight qqq");
+                    } else {
+                        console.log(homeHeight + " homeHeight qqq???");
+                        homeHeight = parseInt($(".home").css("height"));//$(window).height();
+                    }
+                    console.log(homeHeight + " homeHeight qqq?");
                     $(".home").css("height", homeHeight);
+                    //console.log(homeHeight + " homeHeight closed");                
                     mainAsideTop = homeHeight/*parseInt($(".home").css("height"))*/ - parseInt($(".main-aside").css("height"));
                     $(".main-aside").css("top", mainAsideTop);
-                    $("html, body").scrollTop(filter_hover.offset().top - 10);
-                    console.log(filter_hover.offset().top - 10);
-                }, 100); 
+                    $("html, body").scrollTop(0);
+                    //console.log(filter_hover.css("height"));
+                }, 100);
+            //console.log("qqq");
             }
-        } 
+            if (closeList == false) {
+
+                filter_hover.find(options_area).addClass("show-list");
+                console.log("select.on open");
+                if ((!($(".home").hasClass("other-pages"))) && (document.documentElement.clientWidth < 604) && (filter_hover.hasClass("component-apartment") || filter_hover.hasClass("component-currency"))) {
+                    setTimeout(function() {
+                        filter_hover_height += parseInt(filter_hover.find(options_area).css("height"));
+                        //console.log(filter_hover_height + " c");
+                        filter_hover.css("height", filter_hover_height);
+                        search_line_height = parseInt($(".search-line").css("height")) + filter_hover_height;          
+                        $(".search-line").css("height", search_line_height);
+                        
+                        //$(".home").css("height", $(window).height());
+                        console.log($(".home").css("height") + " homeHeight css before");
+                        console.log(filter_hover_height + " filter_hover_height");
+                        homeHeight = parseInt($(".home").css("height")) + filter_hover_height;
+                        //console.log($(".home").css("height") + " homeHeight open 1");
+                        //console.log(filter_hover_height + " filter_hover_height open");
+                        console.log(homeHeight + " homeHeight after");
+                        $(".home").css("height", homeHeight);
+                        mainAsideTop = homeHeight/*parseInt($(".home").css("height"))*/ - parseInt($(".main-aside").css("height"));
+                        $(".main-aside").css("top", mainAsideTop);
+                        $("html, body").scrollTop(filter_hover.offset().top - 10);
+                        console.log(filter_hover.offset().top - 10);
+                    }, 100); 
+                }
+            } 
+        }
 
     });
 
@@ -289,7 +289,7 @@ function commonOnDocumentReady() {
                 $(this).parent().parent().find(".component-selected-hidden").val($(this).attr('value')).trigger('change');
             }
         }
-        if (!options_area.hasClass("filter-properties-list")) {
+        if (!$(this).closest(options_area).hasClass("filter-properties-list")) {
             $(this).parent().find(".show-list").removeClass("show-list");
             //console.log("option.on");
         }
