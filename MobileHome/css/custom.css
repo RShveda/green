@@ -6554,6 +6554,9 @@ input.component-list.search-par {
 input.filter-property-type-text.search-par {
     cursor: pointer;
 }
+input.filter-property-type-text:disabled {
+    color: #9C9D9D;
+}
 
 input[type=checkbox]:checked + .custom-checkbox.custom-checkbox-grey:after,
 input[type=checkbox]:checked + .custom-checkbox.custom-checkbox-grey:before {
