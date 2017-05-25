@@ -6553,6 +6553,7 @@ input.component-list.search-par {
 
 input.filter-property-type-text.search-par {
     cursor: pointer;
+    pointer-events: none;
 }
 input.filter-property-type-text:disabled {
     color: #9C9D9D;
