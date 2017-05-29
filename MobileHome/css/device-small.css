@@ -84,7 +84,7 @@
 
     /** Home **/
 
-    header.home {
+    header.home:not(.other-pages) {
         min-height: 810px;
     }
 

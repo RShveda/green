@@ -53,7 +53,7 @@ body {
     max-width: 1390px;
 }
 
-header.home {
+header.home:not(.other-pages) {
     min-height: 670px;
     background: url(../img/home-background.jpg) center / cover no-repeat;
     position: relative;
@@ -634,7 +634,8 @@ button[class*=btn-] .ga-icons {
         width: 100%;
     }
 
-.item-price, .item-favourite {
+.item-price, .item-favourite,
+.item-photo-count {
     position: absolute;
     z-index: 2;
 }
@@ -651,6 +652,15 @@ button[class*=btn-] .ga-icons {
 .item-favourite {
     top: 13px;
     right: 15px;
+}
+.item-photo-count {
+    display: none;
+    bottom: 13px;
+    right: 15px;
+    color: #fff;
+}
+.item-photo-count .photo-count {
+    font-size: 1.3em;
 }
 
 .descr-area {
@@ -762,6 +772,11 @@ button[class*=btn-] .ga-icons {
 
 .ga-icon-map-marker {
     font-size: 1.3em;
+}
+
+.ga-icon-photo-camera {
+    font-size: 1.5em;
+    margin-right: 8px;
 }
 
 /************ Swipper *************/
@@ -1954,7 +1969,7 @@ input.filter-property-type:disabled {
     vertical-align: middle;
 }
 
-.btn-alert, .btn-sort {
+.btn-alert, .btn-sort, .btn-call, .btn-mail {
     height: 35px;
     background: #c60a19;
     color: #fff;
@@ -2337,6 +2352,10 @@ footer.other-footer {
     position: relative;
     overflow: hidden;
 }
+.item-photo-prev .item-price,
+.item-photo-prev .item-favourite {
+    display: none;
+}
 
 .goto-carousel {
     cursor: pointer;
@@ -2425,6 +2444,10 @@ footer.other-footer {
 .social-sharing {
     border: 1px solid #c8c9c9;
     background: #fff;
+}
+.float-form .title-standard,
+.fixed-button-area {
+    display: none;
 }
 
 /******** Social Panel start ********/
@@ -2577,11 +2600,10 @@ footer.other-footer {
     }
 
 /******** Social Panel end ********/
-
-.affix {
-    position: fixed;
-    top: 100px;
-}
+    .affix {
+        position: fixed;
+        top: 100px;
+    }
 
 .float-form:before {
     content: '';
@@ -4485,6 +4507,17 @@ a[data-toggle="modal"] {
     min-width: 70px;
     text-align: center;
     font-size: 2em;
+}
+.backToSearch .ga-icon-budget-arrow {
+    transform: scaleX(-1);
+    width: 19px;
+    font-size: 18pt;
+    margin-right: 5px;
+    display: none;
+}
+.backToSearch .backToSearch-title,
+.count-listing {
+    display: none;
 }
 
     .other-pages .header-row > div > div.previousAdvert:hover, .other-pages .header-row > div > div.nextAdvert:hover, .other-pages .header-row > div > div.backToSearch:hover {
