@@ -1948,11 +1948,6 @@ J'ai vu cette annonce sur Green-Acres, je pense qu'elle peut t'intéresser.</tex
         function setMainPhotoHeight() {
 
             $("#mainPicture").height(($("#mainPicture").width() * 683) / 1024);
-            if (($("#mainPicture").height() < $(".item-photo-prev").height()) && (document.documentElement.clientWidth < 604)) {
-                $(".item-photo-prev")
-                .css("height", $("#mainPicture").height())
-                .css("min-height", $("#mainPicture").height())
-            }
 
         }
 

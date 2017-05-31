@@ -1127,7 +1127,7 @@
         right: 118px;
     }
     .advertpage .all-photos,
-    .advertpage .item-ecology,
+    .advertpage .item-content-part.price.item-ecology,
     .advertpage .similar,
     .advertpage .breadcrumbs-section, 
     .advertpage .more-properties,
@@ -1242,8 +1242,9 @@
     }
     .legal-notice {
         position: absolute;
-        bottom: -25px;
+        bottom: -45px;
         right: 15px;
+        min-height: 50px;
     }
     .float-form .checkbox-group:nth-child(n-1) {
         display: flex;
@@ -1287,6 +1288,29 @@
         width: 100%;
         border: none;
         border-top: 0.5px solid black;
+    }
+    .item-info h1.item-title {
+        height: auto;
+    }
+    .float-form:before {
+        top: 0;
+    }
+    .item-photo-prev .arrow-prev,
+    .item-photo-prev .arrow-next {
+        display: none;
+    }
+    .item-ecology {
+        flex-wrap: wrap;
+    }
+    .ecology-part {
+        flex: auto;
+        -webkit-flex: auto;
+    }
+    .item-ecology .ecology-part:first-child {
+        padding-right: 0px;
+    }
+    .item-ecology .ecology-part:last-child {
+        padding-left: 0px;
     }
 
 }
@@ -1358,6 +1382,9 @@
 
     .other-pages .header-row {
         height: 80px;
+    }
+    .item-photo-prev {
+        margin-top: 139px;
     }
     .home:not(.other-pages) .header-row .text-right {
         top: 0;

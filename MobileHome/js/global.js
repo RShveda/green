@@ -169,7 +169,7 @@ function commonOnDocumentReady() {
                 $(".nextAdvert").removeClass("hidden");
                 $(".backToSearch").removeClass("hidden");
                 $(".float-form").css("top", $(".item-content").height());
-            }, 400);        
+            }, 600);        
         } else {
             setTimeout(function () {
                 $(".previousAdvert").addClass("hidden");
@@ -1404,8 +1404,8 @@ function favoritesClickOnDocumentReady(isAuthenticated) {
              count_fav_text.hide();
          }
      };
-    $(".photo-area .ga-icons.ga-icon-favourite, .add-to-favourites").unbind();
-    $(".photo-area .ga-icons.ga-icon-favourite, .add-to-favourites").on('click touchend', favoritesClickOnDocumentReadyHandler);
+    $(".photo-area .ga-icons.ga-icon-favourite, .add-to-favourites, .item-photo-prev .ga-icons.ga-icon-favourite").unbind();
+    $(".photo-area .ga-icons.ga-icon-favourite, .add-to-favourites, .item-photo-prev .ga-icons.ga-icon-favourite").on('click touchend', favoritesClickOnDocumentReadyHandler);
     window.isFavoriteListenersSet = true;
 }
 

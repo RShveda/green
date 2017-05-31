@@ -18,16 +18,16 @@
         padding: 0;
     }
 
-    .small-sizes-errors {
+    /*.small-sizes-errors {
         display: inline;
-    }
+    }*/
 
     .float-form .validation-summary-errors, .float-form .field-validation-error {
-        display: none;
+        display: inline;
     }
 
     .small-sizes-errors .validation-summary-errors, .small-sizes-errors .field-validation-error {
-        display: inline;
+        display: none;
     }
 
     .float-form {

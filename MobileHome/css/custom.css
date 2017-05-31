@@ -1,4 +1,4 @@
-﻿show-list@font-face {
+﻿@font-face {
     font-family: 'Banjoman';
     src: url('../fonts/banjomanbd.eot');
     src: url('../fonts/banjomanbd.eot?#iefix') format('embedded-opentype'), url('../fonts/banjomanbd.woff') format('woff'), url('../fonts/banjomanbd.ttf') format('truetype'), url('../fonts/banjomanbd.svg#BanjomanBold') format('svg');
