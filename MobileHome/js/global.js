@@ -169,13 +169,13 @@ function commonOnDocumentReady() {
                 $(".nextAdvert").removeClass("hidden");
                 $(".backToSearch").removeClass("hidden");
                 $(".float-form").css("top", $(".item-content").height());
-            }, 800);        
+            }, 600);        
         } else {
             setTimeout(function () {
                 $(".previousAdvert").addClass("hidden");
                 $(".nextAdvert").addClass("hidden");
                 $(".backToSearch").removeClass("hidden");
-            }, 800);       
+            }, 600);       
         }
     });
 
