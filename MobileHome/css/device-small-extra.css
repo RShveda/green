@@ -1209,6 +1209,9 @@
         width: 100%;
         background-color: white !important;
     }
+    .float-form .input-validation-error {
+        background-color: white !important;
+    }
     .float-form .standard-input.second-input {
         margin-left: 0;
     }
