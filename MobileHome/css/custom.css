@@ -2792,6 +2792,8 @@ input[type=checkbox]:checked + .custom-checkbox:before {
         border-bottom: none;
     }
 
+.item-content.rtl-version
+
 /*********** Main characteristics ************/
 
 .main-characteristics ul {
@@ -4514,6 +4516,11 @@ a[data-toggle="modal"] {
     font-size: 18pt;
     margin-right: 5px;
     display: none;
+}
+.rtl-version .backToSearch .ga-icon-budget-arrow {
+    transform: scaleX(1);
+    margin-right: 0;
+    margin-left: 5px;
 }
 .backToSearch .backToSearch-title,
 .count-listing {

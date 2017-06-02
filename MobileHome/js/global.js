@@ -30,9 +30,11 @@ function commonOnDocumentReady() {
     localStorage.getItem("awayFromHome");
     if (localStorage.getItem("awayFromHome") == "1") {
         $(".other-pages .item-search").trigger("click");
+        localStorage.setItem("awayFromHome", "0"); 
         console.log(localStorage.getItem("awayFromHome"));
     } else if (localStorage.getItem("awayFromHome") == "2") {
         $(".other-pages .item-advanced-search").trigger("click");
+        localStorage.setItem("awayFromHome", "0"); 
     }
 
     initJsModel();

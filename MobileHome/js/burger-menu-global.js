@@ -5,7 +5,7 @@ $(".home .item-search").on("click", function () {
     var awayFromHome = "1";
     localStorage.setItem("awayFromHome", awayFromHome); 
     setTimeout(function () {  
-        if($(".search-row").hasClass("rtl-version")) {
+        if($(".header-row").hasClass("rtl-version")) {
             window.location.href = "listing-rtl.html"; 
         } else {   
             window.location.href = "listing3.html"; 
@@ -16,7 +16,7 @@ $(".home .item-advanced-search").on("click", function () {
     var awayFromHome = "2";
     localStorage.setItem("awayFromHome", awayFromHome); 
     setTimeout(function () {  
-        if($(".search-row").hasClass("rtl-version")) {
+        if($(".header-row").hasClass("rtl-version")) {
             window.location.href = "listing-rtl.html"; 
         } else {   
             window.location.href = "listing3.html"; 

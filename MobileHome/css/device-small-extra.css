@@ -509,6 +509,17 @@
         display: block;
         border-right: 1px solid white;
     }
+    .float-form.rtl-version div.fixed-button-area button {
+        right: auto;
+        left: 0;
+    }
+    .float-form.rtl-version div.fixed-button-area button.btn-call {
+        left: auto;
+        right: 0;
+        display: block;
+        border-left: 1px solid white;
+        border-right: none;
+    }
 
     div.sorting-by > p,
     div.sorting-by > div {
@@ -1095,6 +1106,14 @@
     .item-photo-prev .item-favourite {
         display: block;
     }
+    .item-photo-prev.rtl-version .item-price {
+        left: auto;
+        right: 0;
+    }
+    .item-photo-prev.rtl-version .item-favourite {
+        left: 15px;
+        right: auto;
+    }
     .other-pages .header-row > div.AdvertNavigationBar {
         position: relative;
         top: -47px;
@@ -1109,6 +1128,9 @@
         flex-grow: 1;
         text-align: left;
     }
+    .other-pages .header-row.rtl-version > div > div.backToSearch {
+        text-align: right;
+    }
     .backToSearch .ga-icon-budget-arrow,
     .backToSearch .backToSearch-title {
         display: inline-block; 
@@ -1122,9 +1144,17 @@
     .backToSearch .ga-icon-list {
         display: none;
     }
+    .rtl-version .backToSearch .ga-icon-budget-arrow, 
+    .rtl-version .backToSearch .backToSearch-title {
+        float: right;
+    }
     .other-pages .header-row > div > div.previousAdvert {
         position: absolute;
         right: 118px;
+    }
+    .other-pages .header-row.rtl-version > div > div.previousAdvert {
+        right: auto;
+        left: 118px;
     }
     .advertpage .all-photos,
     .advertpage .item-content-part.price.item-ecology,
@@ -1141,6 +1171,10 @@
     }
     .other-pages .header-row > div > div.previousAdvert {
         margin-right: 15px;
+    }
+    .other-pages .header-row.rtl-version > div > div.nextAdvert {
+        margin-right: 15px;
+        margin-left: 0px;
     }
     .other-pages .header-row > div > div.previousAdvert, 
     .other-pages .header-row > div > div.nextAdvert,
@@ -1163,6 +1197,14 @@
     }
     .item-photo-count {
         display: block;
+    }
+    .item-photo-prev.rtl-version .item-photo-count {
+        right: auto;
+        left: 15px;
+    }
+    .item-photo-prev.rtl-version .item-photo-count .ga-icon-photo-camera {
+        float: right;
+        margin-left: 8px;
     }
     .item-params {
         padding-top: 20px;
@@ -1317,7 +1359,9 @@
     .item-ecology .ecology-part:last-child {
         padding-left: 0px;
     }
-
+    .item-content.rtl-version .main-characteristics ul {
+        display: inline-block;
+    }
 }
 
 @media (max-width: 599px) and (orientation:portrait) {
