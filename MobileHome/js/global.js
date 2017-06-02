@@ -924,7 +924,9 @@ function homeMainOnDocumentReady() {
 
     $("#mn_p, #mx_p").on('click touch', function () {
         $(this).select();
+        this.setAttribute('type', 'text');
         this.setSelectionRange(0, 9999);
+        this.setAttribute('type', 'number');
     });
 
     // No highlight for ipad + manually process touch events for map
