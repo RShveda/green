@@ -1362,6 +1362,10 @@
     .item-content.rtl-version .main-characteristics ul {
         display: inline-block;
     }
+    .ecology-value-arrow {
+        left: auto;
+        right: 175px;
+    }
 }
 
 @media (max-width: 599px) and (orientation:portrait) {

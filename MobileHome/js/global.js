@@ -112,7 +112,7 @@ function commonOnDocumentReady() {
             $(".nextAdvert").removeClass("hidden");
             $(".backToSearch").removeClass("hidden");
             $(".float-form").css("top", $(".item-content").height());
-        }, 400);
+        }, 100);
         $(".standard-input").val("");
     }
 
@@ -125,6 +125,24 @@ function commonOnDocumentReady() {
     });
 
     $(window).on("orientationchange", function () {
+        if (panelMenu.hasClass("panel-on")) {
+            setTimeout(function () {
+                screenHeight = $(window).height();//window.screen.height;
+                if (document.documentElement.clientWidth > 600) {
+                    $("body").removeClass("position-fixed");
+                }
+                else if (document.documentElement.clientWidth < 376) {
+                    panelMenu.css("height", (screenHeight - 80) + "px");
+                    menuListHeight = panelHeight = panelMenu.css("height");
+                    $(".menu-list").css("height", menuListHeight);
+                }
+                else {
+                    panelMenu.css("height", (screenHeight - 95) + "px");
+                    menuListHeight = panelHeight = panelMenu.css("height");
+                    $(".menu-list").css("height", menuListHeight);
+                }
+            }, 100);
+        }
         if (!($(".home").hasClass("other-pages"))) { //&& (document.documentElement.clientWidth < 604)) {
 
             setTimeout(function () {
@@ -149,35 +167,19 @@ function commonOnDocumentReady() {
                 $("#city_tag").attr("placeholder", "Lieu de recherche");
             }
         }
-        if (panelMenu.hasClass("panel-on")) {
-            screenHeight = $(window).height();//window.screen.height;
-            if (document.documentElement.clientWidth > 600) {
-                $("body").removeClass("position-fixed");
-            }
-            else if (document.documentElement.clientWidth < 376) {
-                panelMenu.css("height", (screenHeight - 80) + "px");
-                menuListHeight = panelHeight = panelMenu.css("height");
-                $(".menu-list").css("height", menuListHeight);
-            }
-            else {
-                panelMenu.css("height", (screenHeight - 95) + "px");
-                menuListHeight = panelHeight = panelMenu.css("height");
-                $(".menu-list").css("height", menuListHeight);
-            }
-        }
         if (document.documentElement.clientWidth < 604) {
             setTimeout(function () {
                 $(".previousAdvert").removeClass("hidden");
                 $(".nextAdvert").removeClass("hidden");
                 $(".backToSearch").removeClass("hidden");
                 $(".float-form").css("top", $(".item-content").height());
-            }, 600);        
+            }, 200);        
         } else {
             setTimeout(function () {
                 $(".previousAdvert").addClass("hidden");
                 $(".nextAdvert").addClass("hidden");
                 $(".backToSearch").removeClass("hidden");
-            }, 600);       
+            }, 200);       
         }
     });
 
