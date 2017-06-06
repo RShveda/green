@@ -26,12 +26,17 @@ function isLocalStorageNameSupported() {
 }
 
 function commonOnDocumentReady() {
+    //Work with burger-menu-global.js:
     localStorage.getItem("awayFromHome");
     if (localStorage.getItem("awayFromHome") == "1") {
         $(".other-pages .item-search").trigger("click");
+        localStorage.setItem("awayFromHome", "0"); 
+        console.log(localStorage.getItem("awayFromHome"));
     } else if (localStorage.getItem("awayFromHome") == "2") {
         $(".other-pages .item-advanced-search").trigger("click");
+        localStorage.setItem("awayFromHome", "0"); 
     }
+
     initJsModel();
 
     var select = $(".component-list"),
@@ -70,10 +75,12 @@ function commonOnDocumentReady() {
     var menuListHeight;
     var panelMenu = $("#panel-menu");
     var mainAsideTop;
+    var homeHeight;
 
 
-    if (!($(".home").hasClass("other-pages")) && document.documentElement.clientWidth < 600) {
+    if (!($(".home").hasClass("other-pages")) && (document.documentElement.clientWidth < 604)) {
         $(".home").css("height", $(window).height());
+        $(".options-list").css("max-height", $(window).height() - 60).css("overflow-y", "scroll");
         mainAsideTop = parseInt($(".home").css("height")) - parseInt($(".main-aside").css("height"));
         $(".main-aside").css("top", mainAsideTop);
         $(".component-currency").children(".component-selected").html('€');
@@ -83,12 +90,72 @@ function commonOnDocumentReady() {
             $("#city_tag").attr("placeholder", "Lieu de recherche");
         }
     }
-    
+    // For Advert Page:
+    $('.float-form')
+        .affix()
+            .on(
+                'affix.bs.affix affix-top.bs.affix affix-bottom.bs.affix'
+                , function(evt){  
+                    if(document.documentElement.clientWidth < 604){  
+                        evt.preventDefault();  
+                    }  
+                }
+            ); 
+    if (document.documentElement.clientWidth < 604) {
+        setTimeout(function () {
+            if ($("#mainPicture").height() < $(".item-photo-prev").height()) {
+                $(".item-photo-prev")
+                .css("height", $("#mainPicture").height())
+                .css("min-height", $("#mainPicture").height())
+            }
+            $(".previousAdvert").removeClass("hidden");
+            $(".nextAdvert").removeClass("hidden");
+            $(".backToSearch").removeClass("hidden");
+            $(".float-form").css("top", $(".item-content").height());
+        }, 100);
+        $(".standard-input").val("");
+    }
+
+    $(window).scroll(function(){
+        if ($(document).scrollTop() > (parseInt($(".float-form").css("top")) - 100) ) {
+            $('.fixed-button-area').hide();
+        } else {
+            $('.fixed-button-area').show();
+        }
+    });
+
     $(window).on("orientationchange", function () {
-        if (!($(".home").hasClass("other-pages")) && document.documentElement.clientWidth < 600) {
-            $(".home").css("height", $(window).height());
-            mainAsideTop = parseInt($(".home").css("height")) - parseInt($(".main-aside").css("height"));
-            $(".main-aside").css("top", mainAsideTop);
+        if (document.documentElement.clientWidth < 604) {
+            setTimeout(function () {
+                $(".previousAdvert").removeClass("hidden");
+                $(".nextAdvert").removeClass("hidden");
+                $(".backToSearch").removeClass("hidden");
+                $(".float-form").css("top", $(".item-content").height());
+            }, 400);        
+        } else {
+            setTimeout(function () {
+                $(".previousAdvert").addClass("hidden");
+                $(".nextAdvert").addClass("hidden");
+                $(".backToSearch").addClass("hidden");
+            }, 400);       
+        }
+        if (!($(".home").hasClass("other-pages"))) { //&& (document.documentElement.clientWidth < 604)) {
+
+            setTimeout(function () {
+                $(".search-line").find(".show-list").removeClass("show-list");
+                select.css("height", select.css("min-height"));
+                $(".search-line").css("height", $(".search-line").css("min-height"));
+            
+                $(".home").css("height", $(window).height());
+                console.log($(".home").css("height") + " window height");
+                $(".options-list").css("max-height", $(window).height() - 60);
+                mainAsideTop = parseInt($(".home").css("height")) - parseInt($(".main-aside").css("height"));
+                $(".main-aside").css("top", mainAsideTop);
+
+            }, 400);
+        }
+
+        if (!($(".home").hasClass("other-pages")) && (document.documentElement.clientWidth < 604)) {
             $(".component-currency").children(".component-selected").html('€');
             if ($(".search-row").hasClass("rtl-version")) {
                 $("#city_tag").attr("placeholder", "بحث الموقع");
@@ -97,21 +164,23 @@ function commonOnDocumentReady() {
             }
         }
         if (panelMenu.hasClass("panel-on")) {
-            screenHeight = $(window).height();//window.screen.height;
-            if (document.documentElement.clientWidth > 600) {
-                $("body").removeClass("position-fixed");
-            }
-            else if (document.documentElement.clientWidth < 376) {
-                panelMenu.css("height", (screenHeight - 80) + "px");
-                menuListHeight = panelHeight = panelMenu.css("height");
-                $(".menu-list").css("height", menuListHeight);
-            }
-            else {
-                panelMenu.css("height", (screenHeight - 95) + "px");
-                menuListHeight = panelHeight = panelMenu.css("height");
-                $(".menu-list").css("height", menuListHeight);
-            }
-        }
+            setTimeout(function () {
+                screenHeight = $(window).height();//window.screen.height;
+                if (document.documentElement.clientWidth > 600) {
+                    $("body").removeClass("position-fixed");
+                }
+                else if (document.documentElement.clientWidth < 376) {
+                    panelMenu.css("height", (screenHeight - 80) + "px");
+                    menuListHeight = panelHeight = panelMenu.css("height");
+                    $(".menu-list").css("height", menuListHeight);
+                }
+                else {
+                    panelMenu.css("height", (screenHeight - 95) + "px");
+                    menuListHeight = panelHeight = panelMenu.css("height");
+                    $(".menu-list").css("height", menuListHeight);
+                }
+            }, 500);
+        }   
     });
 
     $(".btn-m-menu").click(function () {
@@ -161,39 +230,82 @@ function commonOnDocumentReady() {
     $(".btn-m-search").on("click", function () {
         $(".other-pages .item-search").trigger("click");
     });
-    /*Start of HOME PAGE events on "Serch" and "Advanced Serch" menu items */
-    if (!($(".home").hasClass("other-pages"))) {
-        $(".home .item-search").on("click", function () {    
-            var awayFromHome = "1";
-            localStorage.setItem("awayFromHome", awayFromHome); 
-            setTimeout(function () {  
-                if($(".search-row").hasClass("rtl-version")) {
-                    window.location.href = "listing-rtl.html"; 
-                } else {   
-                    window.location.href = "listing3.html"; 
-                } 
-            }, 500);    
-        });
+    
+    
+    var filter_hover_height;
+    var filter_hover_list;
+    var search_line_height;
 
-        $(".home .item-advanced-search").on("click", function () {
-            var awayFromHome = "2";
-            localStorage.setItem("awayFromHome", awayFromHome); 
-            setTimeout(function () {  
-                if($(".search-row").hasClass("rtl-version")) {
-                    window.location.href = "listing-rtl.html"; 
-                } else {   
-                    window.location.href = "listing3.html"; 
-                } 
-            }, 500);  
-        });
-    }
-    /*End of HOME PAGE events on "Serch" and "Advanced Serch" menu items */
+    select.on("click", function (e) {
+        var filter_hover = $(this);
+        var closeList = filter_hover.find(options_area).hasClass("show-list");
+        if (!options_area.has(e.target).length || filter_hover.hasClass("component-currency")) {
+            //e.stopPropagation();
+            //option.trigger("click");
+            filter_hover.find(".show-list").removeClass("show-list");
+            console.log("select.on close");
+            if ((!($(".home").hasClass("other-pages"))) && (document.documentElement.clientWidth < 604) && (filter_hover.hasClass("component-apartment") || filter_hover.hasClass("component-currency"))) {
+            setTimeout(function() {
+                    filter_hover_height = parseInt(filter_hover.css("height"));
+                    //console.log("qq");
+                    //console.log(filter_hover_height + " filter_hover_height");
+                    filter_hover.css("height", filter_hover.css("min-height"));
+                    //console.log(filter_hover_height);
+                    if (filter_hover_height > parseInt(filter_hover.css("min-height"))) {
+                        search_line_height = parseInt($(".search-line").css("height")) - filter_hover_height;          
+                        if (search_line_height < $(".search-line").css("min-height")) {
+                            search_line_height = $(".search-line").css("min-height");
+                        }
+                        //console.log(search_line_height + " search_line_height closed");
+                        $(".search-line").css("height", search_line_height);
+                        homeHeight = parseInt($(".home").css("height")) - filter_hover_height;
+                        if (homeHeight < $(window).height()) {
+                            homeHeight = $(window).height();
+                        }
+                        console.log(homeHeight + " homeHeight qqq");
+                    } else {
+                        console.log(homeHeight + " homeHeight qqq???");
+                        homeHeight = parseInt($(".home").css("height"));//$(window).height();
+                    }
+                    console.log(homeHeight + " homeHeight qqq?");
+                    $(".home").css("height", homeHeight);
+                    //console.log(homeHeight + " homeHeight closed");                
+                    mainAsideTop = homeHeight/*parseInt($(".home").css("height"))*/ - parseInt($(".main-aside").css("height"));
+                    $(".main-aside").css("top", mainAsideTop);
+                    //$("html, body").scrollTop(0);
+                    //console.log(filter_hover.css("height"));
+                }, 100);
+            //console.log("qqq");
+            }
+            if (closeList == false) {
 
-    select.on("click", function () {
-        var closeList = $(this).find(options_area).hasClass("show-list");
-        select.parent().find(".show-list").removeClass("show-list");
-        if (closeList == false)
-            $(this).find(options_area).addClass("show-list");
+                filter_hover.find(options_area).addClass("show-list");
+                console.log("select.on open");
+                if ((!($(".home").hasClass("other-pages"))) && (document.documentElement.clientWidth < 604) && (filter_hover.hasClass("component-apartment") || filter_hover.hasClass("component-currency"))) {
+                    setTimeout(function() {
+                        filter_hover_height += parseInt(filter_hover.find(options_area).css("height"));
+                        //console.log(filter_hover_height + " c");
+                        filter_hover.css("height", filter_hover_height);
+                        search_line_height = parseInt($(".search-line").css("height")) + filter_hover_height;          
+                        $(".search-line").css("height", search_line_height);
+                        
+                        //$(".home").css("height", $(window).height());
+                        console.log($(".home").css("height") + " homeHeight css before");
+                        console.log(filter_hover_height + " filter_hover_height");
+                        homeHeight = parseInt($(".home").css("height")) + filter_hover_height;
+                        //console.log($(".home").css("height") + " homeHeight open 1");
+                        //console.log(filter_hover_height + " filter_hover_height open");
+                        console.log(homeHeight + " homeHeight after");
+                        $(".home").css("height", homeHeight);
+                        mainAsideTop = homeHeight/*parseInt($(".home").css("height"))*/ - parseInt($(".main-aside").css("height"));
+                        $(".main-aside").css("top", mainAsideTop);
+                        $("html, body").scrollTop(filter_hover.offset().top - 10);
+                        console.log(filter_hover.offset().top - 10);
+                    }, 100); 
+                }
+            } 
+        }
+
     });
 
     option.on("click", function () {
@@ -208,7 +320,10 @@ function commonOnDocumentReady() {
                 $(this).parent().parent().find(".component-selected-hidden").val($(this).attr('value')).trigger('change');
             }
         }
-        $(this).parent().find(".show-list").removeClass("show-list");
+        if (!$(this).closest(options_area).hasClass("filter-properties-list")) {
+            $(this).parent().find(".show-list").removeClass("show-list");
+            //console.log("option.on");
+        }
         if ($(this).is('[data-currency-icon]')) {
             $('span.budget-currency').html($(this).data('currency-icon'));
         }
@@ -248,7 +363,10 @@ function commonOnDocumentReady() {
         if ($(e.target).closest(options_area).length || $(e.target).closest(option).length || $(e.target).closest(select).length) {
             e.stopPropagation();
         } else {
-            options_area.removeClass("show-list");
+            if (!options_area.hasClass("filter-properties-list")) {
+                options_area.removeClass("show-list");
+                //console.log("window.on");
+            }
         }
 
         /*************************** Touch on Add To Favourites *********************************/
@@ -327,14 +445,18 @@ function commonOnDocumentReady() {
     });
 
     /*************************/
-
-    filter_hover.on("mouseover touchend", function () {
-        $(this).find(".filter-properties-list").show();
+    /*filter_hover.on("mouseover touchend", function () {
+        if (document.documentElement.clientWidth > 604) {
+            $(this).find(".filter-properties-list").show();
+        }
     });
 
     filter_hover.on("mouseleave", function () {
-        $(this).find(".filter-properties-list").hide();
+        if (document.documentElement.clientWidth > 604) {
+            $(this).find(".filter-properties-list").hide();
+        }
     });
+    */
 
     $(window).on("click touchend", function (e) {
         if ($(e.target).closest(filter_hover).length) {
@@ -348,6 +470,8 @@ function commonOnDocumentReady() {
                     }, 100);
                 } else {
                     filter_hover.find(".filter-properties-list").hide();
+                    console.log("window.on2");
+
                 }
             }
         }
@@ -358,13 +482,13 @@ function commonOnDocumentReady() {
     filter_prop_btn.on("click", function () {
         window.doNotHidePropertiesList = true;
         var parent_val = $(this).parent().parent().parent().parent().parent();
-        console.log(parent_val);
+        //console.log(parent_val);
         var counter = parseInt(parent_val.find(filter_type_text).attr("data-counter"));
         if ($(this).is(":checked")) {
             /*** Counter ***/
             counter++;
             parent_val.find(filter_type_text).attr("data-counter", counter);
-            console.log(counter);
+            //console.log(counter);
             /*** Counter ***/
             if (counter > 1) {
                 parent_val.find(filter_type_text).val(parent_val.find(filter_type_text).val() + ", " + $(this).parent().find(filter_prop_text).text());
@@ -375,7 +499,7 @@ function commonOnDocumentReady() {
             /*** Counter ***/
             counter--;
             parent_val.find(filter_type_text).attr("data-counter", counter);
-            console.log(counter);
+            //console.log(counter);
             /*** Counter ***/
             var str = parent_val.find(filter_type_text).val();
             str = str.replace(", " + $(this).parent().find(filter_prop_text).text(), "");
@@ -802,7 +926,9 @@ function homeMainOnDocumentReady() {
 
     $("#mn_p, #mx_p").on('click touch', function () {
         $(this).select();
+        //this.setAttribute('type', 'text');
         this.setSelectionRange(0, 9999);
+        //this.setAttribute('type', 'number');
     });
 
     // No highlight for ipad + manually process touch events for map
@@ -1284,8 +1410,8 @@ function favoritesClickOnDocumentReady(isAuthenticated) {
              count_fav_text.hide();
          }
      };
-    $(".photo-area .ga-icons.ga-icon-favourite, .add-to-favourites").unbind();
-    $(".photo-area .ga-icons.ga-icon-favourite, .add-to-favourites").on('click touchend', favoritesClickOnDocumentReadyHandler);
+    $(".photo-area .ga-icons.ga-icon-favourite, .add-to-favourites, .item-photo-prev .ga-icons.ga-icon-favourite").unbind();
+    $(".photo-area .ga-icons.ga-icon-favourite, .add-to-favourites, .item-photo-prev .ga-icons.ga-icon-favourite").on('click touchend', favoritesClickOnDocumentReadyHandler);
     window.isFavoriteListenersSet = true;
 }
 
