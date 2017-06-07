@@ -125,7 +125,7 @@ function commonOnDocumentReady() {
     });
 
     $(window).on("orientationchange", function () {
-        if (document.documentElement.clientWidth < 604) {
+        if (document.documentElement.clientWidth > 604) {
             setTimeout(function () {
                 $(".previousAdvert").removeClass("hidden");
                 $(".nextAdvert").removeClass("hidden");
