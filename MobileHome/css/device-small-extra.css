@@ -1366,6 +1366,9 @@
         left: auto;
         right: 175px;
     }
+    #blueimp-gallery > .next, #blueimp-gallery > .prev {
+        line-height: 27px;
+    }
 }
 
 @media (max-width: 599px) and (orientation:portrait) {
