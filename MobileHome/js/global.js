@@ -132,14 +132,14 @@ function commonOnDocumentReady() {
                 $(".backToSearch").removeClass("hidden");
                 $(".float-form").css("top", $(".item-content").height());
                 console.log("<604");
-            }, 0);        
+            }, 200);        
         } else {
             setTimeout(function () {
                 $(".previousAdvert").addClass("hidden");
                 $(".nextAdvert").addClass("hidden");
                 $(".backToSearch").addClass("hidden");
                 console.log(">604");
-            }, 0);       
+            }, 200);       
         }
         if (!($(".home").hasClass("other-pages"))) { //&& (document.documentElement.clientWidth < 604)) {
 
