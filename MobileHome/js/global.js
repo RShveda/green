@@ -131,13 +131,15 @@ function commonOnDocumentReady() {
                 $(".nextAdvert").removeClass("hidden");
                 $(".backToSearch").removeClass("hidden");
                 $(".float-form").css("top", $(".item-content").height());
-            }, 200);        
+                console.log("<604");
+            }, 0);        
         } else {
             setTimeout(function () {
                 $(".previousAdvert").addClass("hidden");
                 $(".nextAdvert").addClass("hidden");
                 $(".backToSearch").addClass("hidden");
-            }, 200);       
+                console.log(">604");
+            }, 0);       
         }
         if (!($(".home").hasClass("other-pages"))) { //&& (document.documentElement.clientWidth < 604)) {
 
