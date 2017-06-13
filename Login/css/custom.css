@@ -258,11 +258,13 @@ button[class*=btn-] .ga-icons {
         transition: .1s ease-out;
         -webkit-transition: .1s ease-out;
     }
+    #basketMemberRegister .custom-radio {
+        display: none;
+    }
     #basketMemberRegister .custom-radio .radio-checker {
         left: 20px;
         top: 0px;
-        border: 1px solid #bcbcbc;
-        display: none;
+        border: 1px solid #bcbcbc;        
     }
 
 
