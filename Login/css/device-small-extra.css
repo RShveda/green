@@ -1423,7 +1423,7 @@
         margin: 0;
         height: 100%;
         overflow-y: scroll;
-        /*-webkit-overflow-scrolling: touch;*/
+        -webkit-overflow-scrolling: auto;
     }
     #basketModalContainer .modal-content,
     #basketMemberRegister .modal-content {
@@ -1459,7 +1459,7 @@
     #basketModalContainer .modal-body {
         padding-top: 20px;
         overflow-y: scroll;
-        /*-webkit-overflow-scrolling: touch;*/
+        -webkit-overflow-scrolling: auto;
         min-height: 480px;
     }
     #basketModalContainer .standard-input,
