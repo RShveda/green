@@ -1412,8 +1412,7 @@
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
         overflow-y: hidden;
-        top: 0;    
-        position: absolute;
+        top: 0;
     }
     #basketModal > *, #basketMemberRegister > * {
         -webkit-transform: translateZ(0px);
