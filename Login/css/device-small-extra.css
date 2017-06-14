@@ -1402,7 +1402,7 @@
     /* CONNECTION, REGISTER */
     #basketModal, #basketMemberRegister {
         padding-right: 0 !important;
-        position: absolute;
+        position: device-fixed;
         top: 0;
     }
     #basketModalContainer .form-modal .modal-dialog,
