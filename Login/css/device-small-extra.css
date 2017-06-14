@@ -1400,10 +1400,18 @@
         line-height: 27px;
     }
     /* CONNECTION, REGISTER */
+    html {
+        max-height: 100%;
+    }
+    body.basket-page.modal-open {
+        max-height: 100%;
+    }
+    #basketModalContainer {
+        overflow: hidden;
+    }
     #basketModal, #basketMemberRegister {
         padding-right: 0 !important;
-        position: device-fixed;
-        top: 0;
+        max-height: 100%;
     }
     #basketModalContainer .form-modal .modal-dialog,
     #basketMemberRegister.form-modal .modal-dialog {
