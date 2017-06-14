@@ -1267,9 +1267,14 @@ function autocompleteOnDocumentReady() {
         $(".city-autocomplete-wrapper").tooltip("hide");
         setTimeout(onShowHideMoreCities, 100);
     });
-    
+
+    /* CONNECTION / REGISTRATION MOBILE Start */
     $(".modal-header .ga-icon-budget-arrow").on("click", function () {
         $(".modal-header button.close").trigger("click");
+        // if ($(this).closest(".alert-modal").hasClass("register-modal")) {
+        //     $(".alert-part .btn-alert").trigger("click");  
+        // }
+        
     });
     
     $(".custom-radio").on("click", function () {
@@ -1277,7 +1282,7 @@ function autocompleteOnDocumentReady() {
         $(this).closest("form").find($("input")).prop("checked", false).attr("checked", false);
         $(this).find($("input")).prop("checked", true).attr("checked", true);
     });
-
+    /* CONNECTION / REGISTRATION MOBILE End */
 
 };
 

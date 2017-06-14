@@ -1406,7 +1406,7 @@
     #basketModalContainer .form-modal .modal-dialog,
     #basketMemberRegister.form-modal .modal-dialog {
         margin: 0;
-        height: 100%;
+        height: calc(100% + 70px);
     }
     #basketModalContainer .modal-content,
     #basketMemberRegister .modal-content {
