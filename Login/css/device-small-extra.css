@@ -1415,6 +1415,10 @@
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
     }
+    #basketModal > *, #basketMemberRegister > * {
+        -webkit-transform: translateZ(0px);
+    }
+    
     #basketModalContainer .form-modal .modal-dialog,
     #basketMemberRegister.form-modal .modal-dialog {
         margin: 0;
