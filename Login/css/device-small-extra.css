@@ -1406,14 +1406,13 @@
     body.basket-page.modal-open {
         max-height: 100%;
     }
-    #basketModalContainer {
-        overflow: hidden;
-    }
     #basketModal, #basketMemberRegister {
         padding-right: 0 !important;
         max-height: 100%;
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
+        overflow-y: hidden;
+        top: 0;
     }
     #basketModal > *, #basketMemberRegister > * {
         -webkit-transform: translateZ(0px);
@@ -1457,6 +1456,8 @@
     }
     #basketModalContainer .modal-body {
         padding-top: 20px;
+        overflow-y: scroll;
+        min-height: 650px;
     }
     #basketModalContainer .standard-input,
     #basketMemberRegister .standard-input {
