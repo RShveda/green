@@ -1270,6 +1270,7 @@ function autocompleteOnDocumentReady() {
 
     /* CONNECTION / REGISTRATION MOBILE Start */
     $(".modal-header .ga-icon-budget-arrow").on("click", function () {
+        $("body").removeClass("position-fixed");
         $(".modal-header button.close").trigger("click");
         // if ($(this).closest(".alert-modal").hasClass("register-modal")) {
         //     $(".alert-part .btn-alert").trigger("click");  
