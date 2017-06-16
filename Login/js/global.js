@@ -91,17 +91,26 @@ function commonOnDocumentReady() {
         }
     }
     // For Advert Page:
-    $('.float-form')
+    // $('.float-form')
+    //     .affix()
+    //         .on(
+    //             'affix.bs.affix affix-top.bs.affix affix-bottom.bs.affix'
+    //             , function(evt){  
+    //                 if(document.documentElement.clientWidth < 604){  
+    //                     evt.preventDefault();  
+    //                 }  
+    //             }
+    //         ); 
+
+    if (document.documentElement.clientWidth < 604) {
+        $('.float-form')
         .affix()
             .on(
                 'affix.bs.affix affix-top.bs.affix affix-bottom.bs.affix'
-                , function(evt){  
-                    if(document.documentElement.clientWidth < 604){  
-                        evt.preventDefault();  
-                    }  
+                , function(evt){   
+                        evt.preventDefault();    
                 }
             ); 
-    if (document.documentElement.clientWidth < 604) {
         setTimeout(function () {
             if ($("#mainPicture").height() < $(".item-photo-prev").height()) {
                 $(".item-photo-prev")
