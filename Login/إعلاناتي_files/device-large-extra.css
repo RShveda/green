@@ -1,0 +1,206 @@
+﻿/* Large devices (desktops, more than 1200px) */
+
+@media (min-width: 900px) and (max-width:1440px) {
+    .currency-listing {
+        margin-left: -15px;
+    }
+
+    .filters-content#filter-4 {
+        padding: 10px 5px 0 48px;
+    }
+
+    .filters-content#filter-5 {
+        padding: 10px 21px 0 35px;
+    }
+    .custom-vacancy-banner {
+        padding-top: 5px;
+    }
+
+    .custom-vacancy-banner .vacancy-name h5 {
+        font-size: 12px;
+    }
+
+    .custom-vacancy-banner .vacancy-name h3 {
+        font-size: 15px;
+    }
+
+    .custom-vacancy-banner .requirements h5 {
+        left: -3px;
+        font-size: 11px;
+    }
+
+    .custom-vacancy-banner .requirements ul li {
+        max-width: 55%;
+        font-size: 10px;
+    }
+
+    .custom-vacancy-banner::before {
+        background-position: right bottom;
+        background-size: 40%;
+        background-repeat: no-repeat;
+    }
+
+    .custom-vacancy-banner .vacancy-footer {
+        padding-top: 5px;
+    }
+
+    .custom-vacancy-banner .vacancy-footer h5 {
+        font-size: 11px;
+        margin-right: 3px;
+        display: block;
+    }
+
+    .custom-vacancy-banner .vacancy-footer h5 + .value {
+        margin: 0;
+        font-size: 11px;
+    }
+
+    .custom-vacancy-banner .vacancy-footer .apply-wrapper .button {
+        display: inline-block;
+        padding: 5px;
+        font-size: 12px;
+        margin-top: 30px;
+        text-align: center;
+    }
+}
+
+@media (max-width:1440px) {
+    .label-for-minmax {
+        width: 0 !important;
+        padding: 0 !important;
+        overflow: hidden;
+    }
+
+    .min, .max {
+        width: 50%;
+    }
+
+    .container-fluid {
+        max-width: 1130px;
+    }
+
+    .items-grid .item-main {
+        margin: 15px;
+    }
+
+    .photo-area img,
+    .photo-area .img-area {
+        height: 100%;
+    }
+
+    .search-line-component .icon-budget {
+        width: 40px;
+    }
+
+    .component-budget .search-par {
+        width: calc(50% - 40px);
+    }
+
+    .rtl .icon-budget {
+        background-position: 0 -80px;
+        color: rgba(0, 0, 0, 0);
+    }
+
+    .video360-feature {
+        min-height: 260px;
+    }
+
+    .float-form {
+        margin: -76px 0 0 0;
+    }
+
+    .commercial {
+        height: 550px;
+    }
+
+    .list-part li {
+        flex-basis: 33%;
+        min-width: 33%;
+    }
+
+    .video-area:after,
+    .video-area:before {
+        left: 7px;
+    }
+
+    .rtl .video-area:after,
+    .rtl .video-area:before {
+        left: auto;
+        right: 7px;
+    }
+
+    .b-img {
+        width: 40%;
+    }
+
+    .b-title {
+        font-size: 1.5em;
+    }
+
+    .red-list li,
+    .b-item .text {
+        font-size: 1.1em;
+    }
+
+    .main-review .review-text {
+        font-size: 1.6em;
+    }
+
+    .author-photo img {
+        width: 90%;
+    }
+
+    .main-review .review-text p:after,
+    .main-review .review-text p:before {
+        width: 50px;
+    }
+
+    .review .review-text p {
+        font-size: 1.3em;
+    }
+
+    .slider-block .subtitle {
+        font-size: 1.9em;
+    }
+
+    .slider-block .red-list li {
+        font-size: 1.3em;
+    }
+
+    .contact-form-area .subtitle-standard {
+        font-size: 1.6em;
+    }
+
+    .featured-title {
+        font-size: 2em;
+        line-height: 6.4em;
+    }
+
+    .featured-descr {
+        font-size: 1.5em;
+    }
+
+    .review .review-text {
+        min-height: 225px;
+    }
+
+    .dumb-more-filter.with-text-inside > p {
+        text-align: right;
+        margin-right: -5px;
+    }
+}
+
+@media (min-width:1440px) {
+    .filters-content {
+        padding-right: 35px;
+    }
+
+    .more-filters-area div:not(:first-child) > .filters-content {
+        padding-right: 20px;
+    }
+
+    .currency-listing .options-list {
+        width: calc(100% + 5px);
+        left: -5px;
+    }
+}
