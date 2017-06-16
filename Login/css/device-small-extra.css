@@ -1491,10 +1491,13 @@
     #basketMemberRegister .standard-input {
         margin-bottom: 2px;
     }
+    .btn-send, 
+    #basketModalContainer .soc.text {
+        border-radius: 6px;
+    }
     #basketModalContainer .btn-send,
     #basketModalContainer .soc.text,
-    #basketMemberRegister .btn-send {
-        border-radius: 6px;
+    #basketMemberRegister .btn-send {    
         margin-top: 15px;
         margin-bottom: 15px;
     }
