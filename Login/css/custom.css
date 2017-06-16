@@ -9675,3 +9675,6 @@ div.tagsinput div {
 	float: left;
 }
 /** END Jquery-ui **/
+#basketForgotPassword .modal-dialog {
+    margin-top: 100px;
+}
