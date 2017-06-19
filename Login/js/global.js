@@ -102,6 +102,13 @@ function commonOnDocumentReady() {
     //             }
     //         ); 
 
+    $("#basketForgotPassword").on("show.bs.modal", function (e) {
+        $("#basketModal").css('z-index','1000');
+    });
+    $("#basketForgotPassword").on("hide.bs.modal", function (e) {
+        $("#basketModal").css('z-index','1050');
+    });
+
     if (document.documentElement.clientWidth < 604) {
         $('.float-form')
         .affix()
