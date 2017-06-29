@@ -100,12 +100,6 @@ function commonOnDocumentReady() {
             $(".float-form").css("top", $(".item-content").height());
         }, 100);
         $(".standard-input").val("");
-
-        $(".component-location").on("click", function (e) {
-            if ($(this).find(".city-autocomplete-wrapper").hasClass("onfocus")) {
-               $("html, body").scrollTop($(this).offset().top - 10); 
-            }
-        });
     }
 
     $(window).scroll(function () {
@@ -292,7 +286,11 @@ function commonOnDocumentReady() {
         }, 0);
     });
 
-
+    $(".component-location").on("click", function (e) {
+        if (($(this).find(".city-autocomplete-wrapper").hasClass("onfocus")) && (document.documentElement.clientWidth < 604)) {
+           $("html, body").scrollTop($(this).offset().top - 10); 
+        }
+    });
 
     /**** Additional Function on Advert Page (Hover on Form elements) ****/
     show_social.on("mouseover", function () {
