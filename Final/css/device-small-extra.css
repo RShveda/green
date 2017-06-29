@@ -255,7 +255,7 @@
     }
 
     header.home:not(.other-pages) {
-        min-height: 665px;
+        min-height: 710px;
     }
 
     .home .ga-icons.ga-icon-triangle-down {

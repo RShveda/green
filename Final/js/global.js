@@ -100,6 +100,12 @@ function commonOnDocumentReady() {
             $(".float-form").css("top", $(".item-content").height());
         }, 100);
         $(".standard-input").val("");
+
+        $(".component-location").on("click", function (e) {
+            if ($(this).find(".city-autocomplete-wrapper").hasClass("onfocus")) {
+               $("html, body").scrollTop($(this).offset().top - 10); 
+            }
+        });
     }
 
     $(window).scroll(function () {
@@ -233,7 +239,7 @@ function commonOnDocumentReady() {
                         homeHeight = parseInt($(".home").css("height"));
                     }
                     $(".home").css("height", homeHeight);
-                    mainAsideTop = homeHeight;
+                    mainAsideTop = homeHeight - parseInt($(".main-aside").css("height"));
                     $(".main-aside").css("top", mainAsideTop);
                 }, 100);
             }
@@ -249,7 +255,7 @@ function commonOnDocumentReady() {
                         $(".search-line").css("height", search_line_height);
                         homeHeight = parseInt($(".home").css("height")) + filter_hover_height;
                         $(".home").css("height", homeHeight);
-                        mainAsideTop = homeHeight;
+                        mainAsideTop = homeHeight - parseInt($(".main-aside").css("height"));
                         $(".main-aside").css("top", mainAsideTop);
                         $("html, body").scrollTop(filter_hover.offset().top - 10);
                     }, 100);
@@ -285,6 +291,8 @@ function commonOnDocumentReady() {
             $("body").trigger("click");
         }, 0);
     });
+
+
 
     /**** Additional Function on Advert Page (Hover on Form elements) ****/
     show_social.on("mouseover", function () {
@@ -393,6 +401,18 @@ function commonOnDocumentReady() {
         }
     });
     /**** END Block input ****/
+
+    /**** START HomePage Desktop dropdown "property type" mouseover/mouseleave ****/
+    if (document.documentElement.clientWidth > 604) {
+        filter_hover.on("mouseover touchend", function () {        
+                $(this).find(".filter-properties-list").show();
+        });
+
+        filter_hover.on("mouseleave", function () {
+                $(this).find(".filter-properties-list").hide();
+        });
+    }
+    /**** END HomePage Desktop dropdown "property type" mouseover/mouseleave ****/
 
     $(window).on("click touchend", function (e) {
         if ($(e.target).closest(filter_hover).length) {
