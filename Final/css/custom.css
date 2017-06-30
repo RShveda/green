@@ -1319,9 +1319,9 @@ footer ul {
 
 header.other-pages {
     background: #fcfcfc;
-    height: auto;
+    /*height: auto;*/
+    height: 60px;
     border-bottom: 1px solid #eae8e8;
-    ;
 }
 
     header.other-pages .logo .logo-part-large {
@@ -8256,7 +8256,7 @@ div.tagsinput div {
 
 .home.other-pages + form {
     height: 100%;
-    margin-top: -50px;
+    /*margin-top: -50px;*/
 }
 
     .home.other-pages + form .more-filters {
