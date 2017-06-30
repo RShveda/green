@@ -100,6 +100,11 @@ function commonOnDocumentReady() {
             $(".float-form").css("top", $(".item-content").height());
         }, 100);
         $(".standard-input").val("");
+
+        if ($(".backToSearch").hasClass("hidden") && $(".previousAdvert").hasClass("hidden") && $(".nextAdvert").hasClass("hidden")) {
+            $(".AdvertNavigationBar").addClass("hidden");
+            $(".advert-page").css("margin-top", "-60px");
+        }
     }
 
     $(window).scroll(function () {

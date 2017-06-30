@@ -1339,10 +1339,20 @@
         padding-right: 15px;
         padding-top: 10px;
     }
+    .other-pages .header-row > div.AdvertNavigationBar {
+        display: block;
+    }
 
     .other-pages .header-row > div > div.backToSearch {
-        flex-grow: 1;
+        flex-grow: 0.5;
         text-align: left;
+        line-height: 38px;
+        max-width: 50%;
+        /*position: relative;
+        left: -25%;*/
+    }
+    .backToSearch .ga-icon-budget-arrow {
+        line-height: 40px;
     }
 
     .other-pages .header-row.rtl-version > div > div.backToSearch {
@@ -1408,6 +1418,7 @@
     .other-pages .header-row > div > div.count-listing {
         min-width: 20px;
         float: right;
+        line-height: 38px;
     }
 
     .other-pages .header-row > div > div.count-listing {
@@ -1416,11 +1427,19 @@
     }
 
         .other-pages .header-row > div > div.count-listing span {
-            line-height: 40px;
-            font-size: 18px;
+            line-height: 38px;
+            font-size: 14px;
             font-weight: 700;
             color: #6a6c6c;
+            margin-right: 22px;
+            width: 95px;
+            display: block;
         }
+
+     .other-pages .header-row > div > div.nextAdvert {
+        position: absolute;
+        right: 15px;
+     }
 
     .item-photo-prev {
         margin-top: 155px;
