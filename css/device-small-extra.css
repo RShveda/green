@@ -1674,7 +1674,7 @@
     }
     .advert-page .item-location {
         float: none;
-        max-width: 100%;
+        max-width: 100% !important;
     }
     /**** END Advert ****/
 
