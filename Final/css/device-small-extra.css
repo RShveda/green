@@ -1672,6 +1672,10 @@
     .video-descr {
         display: none;
     }
+    .advert-page .item-location {
+        float: none;
+        max-width: 100% !important;
+    }
     /**** END Advert ****/
 
     /**** Login, Register ****/
