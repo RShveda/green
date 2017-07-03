@@ -1830,6 +1830,20 @@
         display: block;
         margin: 2px auto 2px auto;
     }
+    /**** Advert Page video ****/
+    body {
+        min-width: 320px;
+    }
+    .video-area {
+        height: auto;
+    }
+    .video-wrapper, #youtubePlayer {
+        min-height: 380px;
+        height: auto;
+    }
+    .ytp-cued-thumbnail-overlay-image {
+        background-size: initial;
+    }
 }
 
 @media (max-width: 601px) and (orientation:landscape) {
@@ -1874,6 +1888,9 @@
         .home-country-link:nth-child(6) {
             text-align: right;
         }
+    .video-wrapper, #youtubePlayer {
+        min-height: 300px;
+    }
 }
 
 @media (max-width: 375px) {
@@ -1957,6 +1974,9 @@
 
     .other-pages .header-row > div.AdvertNavigationBar {
         top: -48px;
+    }
+    .video-wrapper, #youtubePlayer {
+        min-height: 213px;
     }
 }
 
