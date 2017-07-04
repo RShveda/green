@@ -98,13 +98,14 @@ function commonOnDocumentReady() {
                     .css("min-height", $("#youtubePlayer").height());
             }
             $(".float-form").css("top", $(".item-content").height());
+            
         }, 100);
         $(".standard-input").val("");
-
         if ($(".backToSearch").hasClass("hidden") && $(".previousAdvert").hasClass("hidden") && $(".nextAdvert").hasClass("hidden")) {
-            $(".AdvertNavigationBar").addClass("hidden");
-            $(".advert-page").css("margin-top", "-60px");
-        }
+                $(".AdvertNavigationBar").addClass("hidden");
+                $(".advert-page").css("margin-top", "-60px");
+            }
+        
     }
 
     $(window).scroll(function () {
@@ -119,19 +120,19 @@ function commonOnDocumentReady() {
     $(window).on("orientationchange", function () {
         if (document.documentElement.clientWidth > 604) {
             setTimeout(function () {
-                $(".previousAdvert").removeClass("hidden");
-                $(".nextAdvert").removeClass("hidden");
-                $(".backToSearch").removeClass("hidden");
+                // $(".previousAdvert").removeClass("hidden");
+                // $(".nextAdvert").removeClass("hidden");
+                // $(".backToSearch").removeClass("hidden");
                 $(".float-form").css("top", $(".item-content").height());
                 console.log("<604");
             }, 200);
-        } else {
-            setTimeout(function () {
-                $(".previousAdvert").addClass("hidden");
-                $(".nextAdvert").addClass("hidden");
-                $(".backToSearch").addClass("hidden");
-                console.log(">604");
-            }, 200);
+        // } else {
+        //     setTimeout(function () {
+        //         // $(".previousAdvert").addClass("hidden");
+        //         // $(".nextAdvert").addClass("hidden");
+        //         // $(".backToSearch").addClass("hidden");
+        //         console.log(">604");
+        //     }, 200);
         }
 
         if (!($(".home").hasClass("other-pages"))) { //&& (document.documentElement.clientWidth < 604)) {
