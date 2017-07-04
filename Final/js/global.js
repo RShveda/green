@@ -119,21 +119,27 @@ function commonOnDocumentReady() {
     /**** END Advert Page ****/
 
     $(window).on("orientationchange", function () {
-        if (document.documentElement.clientWidth > 604) {
+        if (document.documentElement.clientWidth < 604) {
             setTimeout(function () {
-                // $(".previousAdvert").removeClass("hidden");
-                // $(".nextAdvert").removeClass("hidden");
-                // $(".backToSearch").removeClass("hidden");
+                 // $(".previousAdvert").removeClass("hidden");
+                 // $(".nextAdvert").removeClass("hidden");
+                 // $(".backToSearch").removeClass("hidden");
                 $(".float-form").css("top", $(".item-content").height());
+                if ($(".backToSearch").hasClass("hidden") && $(".previousAdvert").hasClass("hidden") && $(".nextAdvert").hasClass("hidden")) {
+                    $(".AdvertNavigationBar").addClass("hidden");
+                    $(".advert-page").css("margin-top", "-60px");
+                }
                 console.log("<604");
-            }, 200);
-        // } else {
-        //     setTimeout(function () {
-        //         // $(".previousAdvert").addClass("hidden");
-        //         // $(".nextAdvert").addClass("hidden");
-        //         // $(".backToSearch").addClass("hidden");
-        //         console.log(">604");
-        //     }, 200);
+            }, 100);
+         } else {
+             setTimeout(function () {
+                  // $(".previousAdvert").addClass("hidden");
+                  // $(".nextAdvert").addClass("hidden");
+                  // $(".backToSearch").addClass("hidden");
+                  $(".float-form").css("top", "0px");
+                  $(".advert-page").css("margin-top", "0px");
+                 console.log(">604");
+             }, 100);
         }
 
         if (!($(".home").hasClass("other-pages"))) { //&& (document.documentElement.clientWidth < 604)) {
