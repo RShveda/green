@@ -1676,6 +1676,11 @@
         float: none;
         max-width: 100% !important;
     }
+
+    .item-info .item-details ul li {
+        padding-top: 0;
+        padding-bottom: 18px;
+    }
     /**** END Advert ****/
 
     /**** Login, Register ****/
