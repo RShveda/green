@@ -119,8 +119,9 @@ function commonOnDocumentReady() {
     /**** END Advert Page ****/
 
     $(window).on("orientationchange", function () {
+        setTimeout(function () {
         if (document.documentElement.clientWidth < 604) {
-            setTimeout(function () {
+            // setTimeout(function () {
                  // $(".previousAdvert").removeClass("hidden");
                  // $(".nextAdvert").removeClass("hidden");
                  // $(".backToSearch").removeClass("hidden");
@@ -130,18 +131,18 @@ function commonOnDocumentReady() {
                     $(".advert-page").css("margin-top", "-60px");
                 }
                 console.log("<604");
-            }, 100);
+            // }, 200);
          } else {
-             setTimeout(function () {
+             // setTimeout(function () {
                   // $(".previousAdvert").addClass("hidden");
                   // $(".nextAdvert").addClass("hidden");
                   // $(".backToSearch").addClass("hidden");
                   $(".float-form").css("top", "0px");
                   $(".advert-page").css("margin-top", "0px");
                  console.log(">604");
-             }, 100);
+             // }, 200);
         }
-
+    }, 200);    
         if (!($(".home").hasClass("other-pages"))) { //&& (document.documentElement.clientWidth < 604)) {
             setTimeout(function () {
                 $(".search-line").find(".show-list").removeClass("show-list");
