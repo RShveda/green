@@ -130,7 +130,7 @@ function commonOnDocumentReady() {
                     $(".AdvertNavigationBar").addClass("hidden");
                     $(".advert-page").css("margin-top", "-60px");
                 }
-                console.log("<604");
+                //console.log("<604");
             // }, 200);
          } else {
              // setTimeout(function () {
@@ -139,10 +139,10 @@ function commonOnDocumentReady() {
                   // $(".backToSearch").addClass("hidden");
                   $(".float-form").css("top", "0px");
                   $(".advert-page").css("margin-top", "0px");
-                 console.log(">604");
+                 //console.log(">604");
              // }, 200);
         }
-    }, 200);    
+    }, 100);    
         if (!($(".home").hasClass("other-pages"))) { //&& (document.documentElement.clientWidth < 604)) {
             setTimeout(function () {
                 $(".search-line").find(".show-list").removeClass("show-list");
