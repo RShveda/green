@@ -142,7 +142,7 @@ function commonOnDocumentReady() {
                  //console.log(">604");
              // }, 200);
         }
-    }, 100);    
+    }, 300);    
         if (!($(".home").hasClass("other-pages"))) { //&& (document.documentElement.clientWidth < 604)) {
             setTimeout(function () {
                 $(".search-line").find(".show-list").removeClass("show-list");
