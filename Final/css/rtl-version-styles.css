@@ -1,4 +1,5 @@
-﻿@keyframes mymove {
+﻿/**** START Icon Menu Animation RTL ****/
+@keyframes mymove {
     from {
         right: -270px;
     }
@@ -7,7 +8,6 @@
         right: 0;
     }
 }
-
 @keyframes mymoveback {
     from {
         right: 0;
@@ -17,6 +17,7 @@
         right: -270px;
     }
 }
+/**** END Icon Menu Animation RTL ****/
 
 .rtl-version {
     direction: rtl;
@@ -908,6 +909,9 @@ section.simple-body-section.gateway-info-main-section.rtl-version h4 + .subitem-
         right: 0;
     }
 }
+.about-us .about-us-logo-image {
+    float: none !important;
+}
 
 @media (max-width: 320px) {
     .more-properties.rtl-version li:nth-child(odd) {
@@ -927,8 +931,4 @@ section.simple-body-section.gateway-info-main-section.rtl-version h4 + .subitem-
         float: left;
         margin-left: 0;
     }
-}
-
-.about-us .about-us-logo-image {
-    float: none !important;
 }

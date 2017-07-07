@@ -5423,7 +5423,7 @@ a.buyingGuideLink {
 /* =====================================
        GREENACRES CUSTOM COMMON
 ===================================== */
-
+/**** START Icon Menu Animation ****/
 @keyframes mymove {
     from {
         left: -270px;
@@ -5433,7 +5433,6 @@ a.buyingGuideLink {
         left: 0;
     }
 }
-
 @keyframes mymoveback {
     from {
         left: 0;
@@ -5443,6 +5442,7 @@ a.buyingGuideLink {
         left: -270px;
     }
 }
+/**** END Icon Menu Animation ****/
 
 .item-info .item-details .ga-icons {
     height: 40px;

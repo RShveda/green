@@ -20,6 +20,7 @@ function compareTwoHistoryStateData(state1, state2) {
 }
 
 function openFilters(scrollToTop) {
+    /**** START Open Filters for extra small devices ****/
     if (document.documentElement.clientWidth < 600) {
         $(".filters-title .ga-icon-budget-arrow").css("display", "block");
         $(".more-filters").css("min-height", ($(window).height() - 570) + "px");
@@ -29,6 +30,8 @@ function openFilters(scrollToTop) {
         $("#panel-menu").css("display", "none");
         $("body").removeClass("position-fixed");
     }
+    /**** END Open Filters for extra small devices ****/
+
     if (scrollToTop !== false && $(window).scrollTop() > 30) {
         $("html, body").animate({ scrollTop: 0 }, 200);
         setTimeout(function () { openFilters(false); }, 250);
@@ -52,6 +55,7 @@ function openFilters(scrollToTop) {
 }
 
 function closeFilters(scrollToTop) {
+    /**** START Close Filters for extra small devices ****/
     if (document.documentElement.clientWidth < 600) {
         $(".filters-title .ga-icon-budget-arrow").css("display", "none");
         $(".btn-alert").css("display", "inline-block");
@@ -59,6 +63,8 @@ function closeFilters(scrollToTop) {
         $(".header-row").css("display", "block");
         $("body").removeClass("position-fixed");
     }
+    /**** END Close Filters for extra small devices ****/
+
     if (scrollToTop !== false && $(window).scrollTop() > 30) {
         $("html, body").animate({ scrollTop: 0 }, 200);
         setTimeout(function () { closeFilters(false); }, 250);
@@ -301,7 +307,7 @@ function searchFiltersOnDocumentReady(nbFilters, isProgramFilter) {
         }
         window.searchFormAjaxDesactivated = false;
     });
-
+    /**** START On Orientation Change ****/
     $(window).on("orientationchange", function () {
         if ($("body").hasClass("open-filters")) {
             window.searchFormAjaxDesactivated = true;
@@ -319,6 +325,7 @@ function searchFiltersOnDocumentReady(nbFilters, isProgramFilter) {
             window.searchFormAjaxDesactivated = false;
         }
     });
+    /**** END On Orientation Change ****/
 
     $("#city").blur(function () {
         if ($("html.opened-filters").length == 0) {
@@ -652,8 +659,7 @@ function searchFormAjaxSubmit() {
     if (window.searchFormAjaxDesactivated !== true) {
         beforeSearchFormAjaxSubmit();
         if (document.documentElement.clientWidth < 600) {
-            $(".city-block").css("display", "none");
-            //$(".more-filters").css("display","none");
+            $(".city-block").css("display", "none");;
             $(".filters-row").css("display", "none");
         }
         // wait for filters to be closed
